@@ -1,0 +1,654 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Our Services | FlowForge - Precision Pipeline Installation</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Swiper CSS for smooth motion carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 30% 20%, #0e0e1a 0%, #030308 100%);
+            color: #d0d0d0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(5, 5, 10, 0.96) !important;
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(201, 112, 42, 0.4);
+            padding: 0.7rem 1.5rem;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            color: #c9702a !important;
+        }
+        .navbar-brand span:first-child {
+            color: #c9702a;
+        }
+        .navbar-brand span:last-child {
+            color: white;
+        }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #c9702a !important;
+        }
+        .dropdown-menu {
+            background: rgba(10, 10, 18, 0.96);
+            backdrop-filter: blur(10px);
+            border: 1px solid #c9702a;
+        }
+        .dropdown-item {
+            color: #ddd;
+        }
+        .dropdown-item:hover {
+            background: #c9702a20;
+            color: #c9702a;
+        }
+
+        /* Services Hero Section */
+        .services-hero {
+            padding: 7rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+        }
+        .services-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #d97a2e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .services-hero p {
+            font-size: 1.1rem;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Swiper Carousel Styles */
+        .services-swiper {
+            padding: 2rem 1rem 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            border: 1px solid rgba(201, 112, 42, 0.35);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .service-card:hover {
+            transform: translateY(-12px);
+            border-color: #d97a2e;
+            box-shadow: 0 30px 40px -20px rgba(217, 122, 46, 0.3);
+        }
+        .service-image {
+            height: 260px;
+            overflow: hidden;
+            position: relative;
+        }
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-image img {
+            transform: scale(1.08);
+        }
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #d97a2e40, #00000080);
+            opacity: 0.4;
+        }
+        .service-badge-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #d97a2e;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0a0a0a;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        .service-content {
+            padding: 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d97a2e;
+            margin-bottom: 0.75rem;
+        }
+        .service-description {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+        .btn-explore {
+            background: transparent;
+            border: 1.5px solid #d97a2e;
+            color: #d97a2e;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-decoration: none;
+        }
+        .btn-explore:hover {
+            background: #d97a2e;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(217, 122, 46, 0.5);
+            transform: translateX(5px);
+        }
+
+        /* Swiper Navigation Buttons */
+        .swiper-button-next, .swiper-button-prev {
+            color: #d97a2e;
+            background: rgba(10, 10, 18, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(217, 122, 46, 0.4);
+            transition: all 0.3s;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: #d97a2e;
+            color: #0a0a0a;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .swiper-pagination-bullet {
+            background: #555;
+            opacity: 0.6;
+        }
+        .swiper-pagination-bullet-active {
+            background: #d97a2e;
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #020208;
+            border-top: 1px solid rgba(201,112,42,0.2);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            z-index: 1000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background: #20b859;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .services-hero { padding: 6rem 1rem 2rem 1rem; margin-top:5vh; }
+            .services-hero h1 { font-size: 2rem; }
+            .service-title { font-size: 1.4rem; }
+            .service-image { height: 200px; }
+            .service-badge-icon { width: 40px; height: 40px; font-size: 1.2rem; top: 12px; right: 12px; }
+            .swiper-button-next, .swiper-button-prev { width: 38px; height: 38px; }
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { padding: 12px; }
+        }
+
+        @media (min-width: 992px) {
+            .services-swiper { padding: 2rem 3rem 4rem 3rem; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #c9702a; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><span>FLOW</span><span>FORGE</span><small style="font-size: 0.65rem; color:#aaa; margin-left: 6px;">Pipeline Masters</small></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item service-nav-item" data-service="residential" href="#">Residential</a></li>
+                        <li><a class="dropdown-item service-nav-item" data-service="laboratory" href="#">Laboratory</a></li>
+                        <li><a class="dropdown-item service-nav-item" data-service="ms" href="#">MS Pipeline</a></li>
+                        <li><a class="dropdown-item service-nav-item" data-service="copper" href="#">Copper Pipeline</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="quote.html">Get Quote</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Services Hero Section -->
+<section class="services-hero">
+    <h1><i class="fas fa-cogs me-3"></i> Our Premium Services</h1>
+    <p>Discover our specialized pipeline solutions engineered for precision, durability, and excellence. With 35+ years of expertise, we deliver unmatched quality across Tamil Nadu and All India.</p>
+</section>
+
+<!-- Swiper Carousel - Motion Slider -->
+<div class="services-swiper">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            
+            <!-- Service 1: Residential Pipeline -->
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/res.png" alt="Residential Pipeline Installation">
+                        <div class="service-overlay"></div>
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Residential Pipeline</h3>
+                        <p class="service-description">
+                            Complete residential gas and water pipeline solutions. We specialize in safe, durable copper and MS piping for apartments, villas, and housing complexes. Our installations meet all safety standards with 10-year warranty on workmanship.
+                        </p>
+                        <button class="btn-explore explore-btn" data-service="Residential Pipeline">
+                            Explore Service <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: Laboratory Pipeline -->
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/lab.png" alt="Laboratory Gas Pipeline">
+                        <div class="service-overlay"></div>
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Laboratory Pipeline</h3>
+                        <p class="service-description">
+                            Precision-engineered gas distribution systems for research labs, hospitals, and educational institutions. We install high-purity copper lines for medical gases, vacuum systems, and specialty gases with zero-leakage certification.
+                        </p>
+                        <button class="btn-explore explore-btn" data-service="Laboratory Pipeline">
+                            Explore Service <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: MS Pipeline -->
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop" alt="Mild Steel Pipeline">
+                        <div class="service-overlay"></div>
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">MS Pipeline</h3>
+                        <p class="service-description">
+                            Heavy-duty Mild Steel pipeline solutions for industrial applications. Ideal for steam lines, compressed air systems, and industrial gas networks. Our MS pipelines feature anti-corrosion coating and high-pressure tolerance.
+                        </p>
+                        <button class="btn-explore explore-btn" data-service="MS Pipeline">
+                            Explore Service <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Copper Pipeline -->
+            <div class="swiper-slide">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/copper.png" alt="Copper Pipeline">
+                        <div class="service-overlay"></div>
+                        
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Copper Pipeline</h3>
+                        <p class="service-description">
+                            Premium copper piping solutions for HVAC, refrigeration, medical gas, and potable water systems. Our copper installations offer superior corrosion resistance, excellent thermal conductivity, and long-lasting reliability.
+                        </p>
+                        <button class="btn-explore explore-btn" data-service="Copper Pipeline">
+                            Explore Service <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<!-- Service Detail Modal - Creative Popup for Explore Button -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background: rgba(10, 10, 18, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(217, 122, 46, 0.5); border-radius: 32px;">
+            <div class="modal-header border-0" style="border-bottom: 1px solid rgba(217, 122, 46, 0.3);">
+                <h5 class="modal-title" id="serviceModalLabel" style="color: #d97a2e; font-weight: 700;">
+                    <i class="fas fa-star-of-life me-2"></i>Service Details
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be injected -->
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal" style="background: transparent; border: 1px solid #d97a2e; color: #d97a2e; padding: 10px 24px; border-radius: 40px;">Close</button>
+                <a href="quote.html" class="btn-primary-custom" style="background: linear-gradient(135deg, #b85e1a, #d97a2e); padding: 10px 28px; border-radius: 40px; color: white; text-decoration: none; font-weight: 600;">Get Quote →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 FLOWFORGE — Precision Copper & MS Pipeline Installation | ISO Certified | 24/7 Support | 35+ Years of Excellence</p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919876543210?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20pipeline%20services" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+    <span>WhatsApp Us</span>
+</a>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    // Initialize Swiper Carousel with smooth motion
+    const swiper = new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 1,
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 150,
+            modifier: 1.2,
+            slideShadows: false,
+        },
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 1.8,
+                spaceBetween: 25,
+            },
+            1024: {
+                slidesPerView: 2.5,
+                spaceBetween: 30,
+                coverflowEffect: {
+                    depth: 120,
+                    modifier: 1,
+                },
+            },
+            1280: {
+                slidesPerView: 3,
+                spaceBetween: 35,
+            }
+        }
+    });
+
+    // Service detailed content for modal
+    const serviceDetails = {
+        'Residential Pipeline': {
+            title: '🏠 Residential Pipeline Solutions',
+            icon: 'fa-home',
+            description: `Our residential pipeline services ensure safe, reliable gas and water distribution for homes and apartments. 
+            <br><br>
+            <strong>Key Features:</strong>
+            <ul class="mt-2">
+                <li>High-grade copper and MS piping for durability</li>
+                <li>Leak-proof joints with advanced welding techniques</li>
+                <li>Compliant with local safety codes</li>
+                <li>10-year workmanship warranty</li>
+                <li>24/7 emergency support for residential clients</li>
+            </ul>
+            <strong>Applications:</strong> Kitchen gas lines, water supply, heating systems, and backup gas connections.`,
+            image: "images/res.png"
+        },
+        'Laboratory Pipeline': {
+            title: '🔬 Laboratory & Medical Gas Systems',
+            icon: 'fa-flask',
+            description: `Precision gas distribution systems for research facilities, hospitals, and educational labs.
+            <br><br>
+            <strong>Key Features:</strong>
+            <ul class="mt-2">
+                <li>High-purity copper piping for medical gases</li>
+                <li>Zero-leakage certified installations</li>
+                <li>Custom manifold systems for multiple gas types</li>
+                <li>Compliant with ISO 7396-1 standards</li>
+                <li>Annual maintenance and testing services</li>
+            </ul>
+            <strong>Applications:</strong> Medical oxygen, vacuum systems, nitrous oxide, compressed air, and specialty research gases.`,
+            image: "images/lab.png"
+        },
+        'MS Pipeline': {
+            title: '⚙️ Mild Steel Industrial Pipelines',
+            icon: 'fa-industry',
+            description: `Heavy-duty MS pipeline solutions for demanding industrial environments.
+            <br><br>
+            <strong>Key Features:</strong>
+            <ul class="mt-2">
+                <li>High-pressure tolerance up to 20 bar</li>
+                <li>Anti-corrosion epoxy coating</li>
+                <li>Welded and flanged joint options</li>
+                <li>Custom fabrication for any scale</li>
+                <li>On-site installation with minimal downtime</li>
+            </ul>
+            <strong>Applications:</strong> Steam lines, compressed air networks, industrial gas supply, and structural pipe systems.`,
+            image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=400&fit=crop'
+        },
+        'Copper Pipeline': {
+            title: '🔧 Premium Copper Piping',
+            icon: 'fa-copper-coin',
+            description: `Superior copper piping solutions for HVAC, refrigeration, and sensitive fluid systems.
+            <br><br>
+            <strong>Key Features:</strong>
+            <ul class="mt-2">
+                <li>Corrosion-resistant high-purity copper</li>
+                <li>Excellent thermal conductivity</li>
+                <li>Lead-free and safe for potable water</li>
+                <li>Brazed joints for maximum strength</li>
+                <li>20+ years of reliable performance</li>
+            </ul>
+            <strong>Applications:</strong> HVAC systems, refrigeration lines, medical gas, solar water heaters, and premium plumbing.`,
+            image: 'https://images.unsplash.com/photo-1581092160562-40aa08e7882f?w=600&h=400&fit=crop'
+        }
+    };
+
+    // Modal functionality for Explore buttons
+    const exploreButtons = document.querySelectorAll('.explore-btn');
+    const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
+    const modalBody = document.getElementById('modalBody');
+
+    exploreButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const serviceName = btn.getAttribute('data-service');
+            const details = serviceDetails[serviceName];
+            
+            if (details) {
+                modalBody.innerHTML = `
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <img src="${details.image}" alt="${serviceName}" style="width: 100%; border-radius: 24px; border: 1px solid rgba(217,122,46,0.3);">
+                        </div>
+                        <div class="col-md-7">
+                            <h3 style="color: #d97a2e; margin-bottom: 1rem;">
+                                <i class="fas ${details.icon} me-2"></i> ${details.title}
+                            </h3>
+                            <div style="color: #ccc; line-height: 1.7;">
+                                ${details.description}
+                            </div>
+                            <div class="mt-4 pt-2">
+                                <span style="background: rgba(217,122,46,0.15); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem;">
+                                    <i class="fas fa-clock me-1"></i> 24/7 Support
+                                </span>
+                                <span style="background: rgba(217,122,46,0.15); padding: 6px 14px; border-radius: 50px; font-size: 0.8rem; margin-left: 8px;">
+                                    <i class="fas fa-shield-alt me-1"></i> Certified Experts
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modal.show();
+            }
+        });
+    });
+
+    // Smooth navigation from dropdown to specific service slide
+    const serviceNavItems = document.querySelectorAll('.service-nav-item');
+    serviceNavItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const service = item.getAttribute('data-service');
+            let slideIndex = 0;
+            switch(service) {
+                case 'residential': slideIndex = 0; break;
+                case 'laboratory': slideIndex = 1; break;
+                case 'ms': slideIndex = 2; break;
+                case 'copper': slideIndex = 3; break;
+                default: slideIndex = 0;
+            }
+            swiper.slideToLoop(slideIndex);
+            // Scroll to services section
+            document.querySelector('.services-swiper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Add floating animation to service cards
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach((card, index) => {
+        card.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+    });
+
+    // Custom animation style
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .service-card {
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Set phone number for WhatsApp (update this with your actual number)
+    const whatsappLink = document.querySelector('.whatsapp-float');
+    if (whatsappLink) {
+        whatsappLink.href = "https://wa.me/919876543210?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20pipeline%20services";
+    }
+</script>
+</body>
+</html>
+```

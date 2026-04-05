@@ -799,8 +799,8 @@
         cards.forEach(c => { c.style.opacity = '1'; c.style.transform = 'translateY(0px)'; });
     }, 150);
     
-    document.getElementById('quoteBtn').onclick = () => alert(`📞 Request a quote: Our experts from Madurai will connect within 24h. Call ${PHONE_NUMBER} or use WhatsApp.`);
-    document.getElementById('exploreBtn').onclick = () => document.querySelector('.service-cards').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('quoteBtn').onclick = () => location.href = 'quotes.html';
+    document.getElementById('exploreBtn').onclick = () => location.href = 'explore.html' ;
     document.getElementById('copperCard').onclick = () => alert("🔧 COPPER PIPELINE: Precision installations for medical gas, AC, and laboratory systems.");
     document.getElementById('msCard').onclick = () => alert("⚙️ MS PIPELINE: Heavy-duty Mild Steel pipelines for industrial gas, steam, and structural applications.");
 </script>
