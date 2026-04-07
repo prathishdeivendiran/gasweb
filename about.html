@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>About Us | Infinite Motion Team (Fully Responsive)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #1a1e2b;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 8vw, 4.8rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title .subhead {
+            font-size: 1.125rem;
+            color: #5b677b;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: #4f46e5;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, #f8faff 0%, #edf2fa 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 96px;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, rgba(79, 70, 229, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-stats {
+            flex: 0.8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e1f2c, #4f46e5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Cards for mission */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 24px;
+        }
+
+        .mvv-card {
+            flex: 1;
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0f2f5;
+            transition: all 0.25s ease;
+        }
+
+        .mvv-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: #4f46e5;
+            margin-bottom: 1.5rem;
+        }
+
+        /* story section */
+        .story-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-text {
+            flex: 1;
+        }
+
+        .story-visual {
+            flex: 1;
+            background: linear-gradient(145deg, #eef2ff, #ffffff);
+            border-radius: 2rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #eef2ff;
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .visual-item {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        .visual-item i {
+            font-size: 2rem;
+            color: #4f46e5;
+        }
+
+        /* ---------- INFINITE HORIZONTAL TICKER (FULLY RESPONSIVE) ---------- */
+        .team-ticker-section {
+            background: #fbfdff;
+            padding: 40px 0 80px 0;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 0 16px;
+        }
+
+        /* Ticker wrapper */
+        .ticker-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+            padding: 20px 0;
+            border-top: 1px solid rgba(79, 70, 229, 0.1);
+            border-bottom: 1px solid rgba(79, 70, 229, 0.1);
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.02), 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        /* The moving strip - uses flex layout with dynamic width */
+        .ticker-strip {
+            display: flex;
+            gap: 2rem;
+            width: max-content;
+            will-change: transform;
+            animation: scrollTicker linear infinite;
+        }
+
+        /* Pause on hover for better UX */
+        .ticker-wrapper:hover .ticker-strip {
+            animation-play-state: paused;
+        }
+
+        /* Modern card design for each team member */
+        .ticker-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            border-radius: 2rem;
+            padding: 1.6rem 1.8rem;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f2f5;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(2px);
+            cursor: default;
+            flex-shrink: 0;
+        }
+
+        .ticker-card:hover {
+            transform: scale(1.02) translateY(-4px);
+            border-color: #cbd5ff;
+            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.15);
+        }
+
+        .avatar-ticker {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(145deg, #e0e7ff, #d9e2ff);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: #4f46e5;
+        }
+
+        .ticker-card h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-role {
+            color: #4f46e5;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+
+        .team-bio {
+            font-size: 0.8rem;
+            color: #475569;
+            line-height: 1.4;
+            max-width: 230px;
+            margin: 0 auto;
+        }
+
+        /* Keyframes for infinite horizontal scroll */
+        @keyframes scrollTicker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .ticker-hint {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            margin-top: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .ticker-hint i {
+            margin-right: 6px;
+        }
+
+        /* cta section */
+        .cta-section {
+            background: linear-gradient(120deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 2rem;
+            padding: 64px 48px;
+            text-align: center;
+            color: white;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: #0f172a;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+            box-shadow: 0 8px 18px rgba(79,70,229,0.3);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        footer {
+            background: #fafcff;
+            border-top: 1px solid #eef2f6;
+            padding: 48px 0 32px;
+            text-align: center;
+            color: #5b6e8c;
+        }
+
+        /* ===== FULLY RESPONSIVE MOBILE TWEAKS ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            section {
+                padding: 64px 0;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                padding: 24px;
+            }
+            .cards-grid {
+                flex-direction: column;
+            }
+            .story-wrap {
+                flex-direction: column;
+            }
+            .ticker-card {
+                width: 260px;
+                padding: 1.2rem 1rem;
+            }
+            .avatar-ticker {
+                width: 80px;
+                height: 80px;
+                font-size: 2.2rem;
+            }
+            .ticker-card h4 {
+                font-size: 1.2rem;
+            }
+            .team-bio {
+                font-size: 0.75rem;
+            }
+            .ticker-strip {
+                gap: 1.2rem;
+            }
+            .ticker-hint {
+                font-size: 0.7rem;
+            }
+            .cta-section {
+                padding: 40px 24px;
+            }
+            .cta-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .ticker-card {
+                width: 240px;
+                padding: 1rem 0.8rem;
+            }
+            .avatar-ticker {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            .ticker-strip {
+                gap: 1rem;
+            }
+        }
+
+        /* Prevent any horizontal overflow on mobile */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="badge">✦ Meet the visionaries</div>
+                <h1>Crafting digital <br> experiences that matter</h1>
+                <p style="font-size: 1.2rem; color: #334155; max-width: 90%; margin-bottom: 2rem;">
+                    We blend strategy, design, and technology to build meaningful connections.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <a href="#" class="btn btn-primary" style="pointer-events: none;">Explore our story <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects delivered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">35+</div>
+                    <div class="stat-label">Team members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Global awards</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<div class="container">
+    <div class="section-title">
+        <h2>Our compass & conviction</h2>
+        <div class="subhead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</div>
+    </div>
+    <div class="cards-grid">
+        <div class="mvv-card">
+            <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Mission</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius, felis id interdum fermentum, erat magna tincidunt turpis.</p>
+        </div>
+        <div class="mvv-card">
+            <div class="card-icon"><i class="fas fa-eye"></i></div>
+            <h3>Vision</h3>
+            <p>To reshape industries by harnessing creativity and innovation. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="mvv-card">
+            <div class="card-icon"><i class="fas fa-gem"></i></div>
+            <h3>Values</h3>
+            <p>Integrity, curiosity, and empathy drive us. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Story Section -->
+<section>
+    <div class="container">
+        <div class="story-wrap">
+            <div class="story-text">
+                <div class="badge"><i class="fas fa-history"></i> Our journey</div>
+                <h2>From bold idea to global impact</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+                <p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
+                <a href="#" style="color: #4f46e5; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read full manifesto <i class="fas fa-long-arrow-alt-right"></i></a>
+            </div>
+            <div class="story-visual">
+                <div class="visual-grid">
+                    <div class="visual-item"><i class="fas fa-chart-line"></i><h4>Growth</h4><p>+340% YoY</p></div>
+                    <div class="visual-item"><i class="fas fa-globe"></i><h4>Global reach</h4><p>18+ countries</p></div>
+                    <div class="visual-item"><i class="fas fa-code-branch"></i><h4>Innovation</h4><p>50+ prototypes</p></div>
+                    <div class="visual-item"><i class="fas fa-heart"></i><h4>Clients love</h4><p>98% retention</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- INFINITE MOTION TEAM TICKER (RESPONSIVE & CONTINUOUS) -->
+<div class="team-ticker-section">
+    <div class="container">
+        <div class="team-header">
+            <h2>Creative minds behind the magic</h2>
+            <div class="subhead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</div>
+        </div>
+    </div>
+
+    <div class="ticker-wrapper">
+        <div class="ticker-strip" id="tickerStrip"></div>
+    </div>
+    <div class="ticker-hint">
+        <i class="fas fa-infinity"></i> Endless motion — like news ticker · Hover to pause
+    </div>
+</div>
+
+<!-- CTA Section -->
+<section class="section-sm">
+    <div class="container">
+        <div class="cta-section">
+            <h3>Let’s create something extraordinary</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Nulla vitae elit libero.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" class="btn btn-primary" style="pointer-events: none;">Start a project <i class="fas fa-rocket"></i></a>
+                <a href="#" class="btn btn-outline-light" style="pointer-events: none;">Contact us <i class="fas fa-comment"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div style="margin-bottom: 32px;">
+            <span style="font-weight: 700; font-size: 1.6rem; background: linear-gradient(135deg,#1e1f2c, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent;">LUMINA</span>
+            <p style="margin-top: 1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-bottom: 32px;">
+            <a href="#" style="color: #5b6e8c; text-decoration: none;">Privacy</a>
+            <a href="#" style="color: #5b6e8c; text-decoration: none;">Terms</a>
+            <a href="#" style="color: #5b6e8c; text-decoration: none;">Careers</a>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 24px; font-size: 1.2rem; margin-bottom: 24px;">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <p style="font-size: 0.85rem;">&copy; 2025 Lumina Studio — endless motion team showcase</p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        // Team members data (as requested with exact lorem content)
+        const teamMembers = [
+            {
+                name: "Alex Morgan",
+                role: "CEO & Founder",
+                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius felis id interdum.",
+                icon: "fa-user-astronaut"
+            },
+            {
+                name: "Jamie Lin",
+                role: "Creative Director",
+                bio: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.",
+                icon: "fa-paintbrush-pencil"
+            },
+            {
+                name: "Casey Wong",
+                role: "Tech Lead",
+                bio: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.",
+                icon: "fa-microchip"
+            },
+            {
+                name: "Taylor Reed",
+                role: "Strategy Head",
+                bio: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.",
+                icon: "fa-chart-simple"
+            },
+            {
+                name: "Jordan Ellis",
+                role: "Product Lead",
+                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et dictum interdum.",
+                icon: "fa-cloud-moon"
+            },
+            {
+                name: "Riley Chen",
+                role: "Engineering",
+                bio: "Passionate about scalable systems and innovative design. Lorem ipsum dolor sit.",
+                icon: "fa-code"
+            }
+        ];
+
+        // Function to create a team card HTML
+        function createTeamCard(member) {
+            return `
+                <div class="ticker-card">
+                    <div class="avatar-ticker">
+                        <i class="fas ${member.icon}"></i>
+                    </div>
+                    <h4>${escapeHtml(member.name)}</h4>
+                    <div class="team-role">${escapeHtml(member.role)}</div>
+                    <div class="team-bio">${escapeHtml(member.bio)}</div>
+                </div>
+            `;
+        }
+
+        // Simple escape to prevent any injection (just good practice)
+        function escapeHtml(str) {
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+                return c;
+            });
+        }
+
+        const tickerStrip = document.getElementById('tickerStrip');
+        if (tickerStrip) {
+            // Build the full set of cards HTML
+            let allCardsHTML = '';
+            teamMembers.forEach(member => {
+                allCardsHTML += createTeamCard(member);
+            });
+            
+            // For seamless infinite scroll, we duplicate the content twice
+            // Using 2 copies ensures that when animation moves by 50%, the second copy perfectly aligns
+            let finalHTML = allCardsHTML + allCardsHTML;  // exactly two copies
+            tickerStrip.innerHTML = finalHTML;
+            
+            // Function to set animation duration based on content width for consistent speed across devices
+            // This ensures the ticker moves at a pleasant speed (around 80-100 pixels per second)
+            // and is fully responsive. We'll also recalc on resize.
+            function setAnimationSpeed() {
+                if (!tickerStrip) return;
+                // Get the total width of one copy of the content (the original set width)
+                // Since we have two copies, total width = scrollWidth / 2? Actually scrollWidth is full width of both copies.
+                const totalWidth = tickerStrip.scrollWidth;
+                if (totalWidth === 0) return;
+                // Width of one set is totalWidth / 2
+                const singleSetWidth = totalWidth / 2;
+                // Desired speed: move at ~100px per second (smooth but not too fast)
+                // For mobile, slightly slower? but let's keep constant ~90px/sec for readability.
+                const pixelsPerSecond = 90;
+                // Duration (seconds) = distance to move (singleSetWidth) / pixelsPerSecond
+                let duration = singleSetWidth / pixelsPerSecond;
+                // Clamp duration between 12 and 40 seconds for best UX
+                duration = Math.min(40, Math.max(12, duration));
+                // Apply animation with calculated duration
+                tickerStrip.style.animation = `scrollTicker ${duration}s linear infinite`;
+            }
+            
+            // Initial set
+            setAnimationSpeed();
+            
+            // On window resize, recalc speed for consistent motion (makes responsive perfect)
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    setAnimationSpeed();
+                }, 150);
+            });
+            
+            // Also observe if any font loading or images cause layout shift (optional but safe)
+            if (window.ResizeObserver) {
+                const observer = new ResizeObserver(() => {
+                    setAnimationSpeed();
+                });
+                observer.observe(tickerStrip);
+            }
+            
+            // Respect reduced motion preference
+            const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (mediaQuery.matches) {
+                tickerStrip.style.animation = 'none';
+            }
+        }
+    })();
+</script>
+</body>
+</html>
