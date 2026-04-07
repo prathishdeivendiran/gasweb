@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LabGas Copper | Laboratory Gas Pipeline Installation | Ultra-Pure Gas Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --copper: #b87333;
+            --accent: #f97316;
+            --lab-blue: #0891b2;
+            --dark-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--navy);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Trust Badge Animation */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+        .trust-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Professional Collage Grid - 5 Images in Masonry Layout */
+        .lab-collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 220px;
+            gap: 1.25rem;
+        }
+
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+        }
+
+        .collage-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.25);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collage-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Specific spans for collage layout */
+        .collage-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .collage-item:nth-child(2) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(3) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(4) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(5) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Image Overlay */
+        .collage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(8, 145, 178, 0.9), transparent);
+            padding: 1.25rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .collage-item:hover .collage-overlay {
+            transform: translateY(0);
+        }
+
+        .collage-overlay p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive Collage */
+        @media (max-width: 768px) {
+            .lab-collage {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .collage-item {
+                min-height: 220px;
+                width: 100%;
+            }
+            .collage-item:nth-child(1),
+            .collage-item:nth-child(2),
+            .collage-item:nth-child(3),
+            .collage-item:nth-child(4),
+            .collage-item:nth-child(5) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-overlay {
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(8, 145, 178, 0.85), transparent);
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .lab-collage {
+                grid-auto-rows: 180px;
+                gap: 1rem;
+            }
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: white;
+            color: var(--navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Safety Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(8, 145, 178, 0.08);
+            transform: translateX(5px);
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 1rem;
+                left: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            color: white;
+            padding: 1rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(8, 145, 178, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                padding: 0.75rem 1.2rem;
+                font-size: 0.85rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        /* Laboratory specific styles */
+        .lab-gradient {
+            background: linear-gradient(135deg, #0a192f 0%, #0f2a3f 50%, #0891b2 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="explore.html" class="back-btn" title="Go Back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+    </a>
+
+    <!-- Floating CTA -->
+    <a href="quotes.html" id="floatingCta" class="floating-cta">
+        <i class="fas fa-flask"></i>
+        <span>Get Lab Quote</span>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center lab-gradient text-white overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-cyan-500/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-cyan-600 to-teal-500 rounded-full">
+                    <i class="fas fa-microscope mr-2"></i> Laboratory Grade Certified
+                </span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1]">
+                    Laboratory <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">Copper Pipeline</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+                    Ultra-pure copper gas distribution systems for research labs, medical facilities, and analytical laboratories. Precision-engineered for zero contamination.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#" id="heroQuoteBtn" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-[0_20px_40px_rgba(8,145,178,0.3)] hover:-translate-y-1">
+                        <i class="fas fa-calendar-check"></i> Request Lab Consultation
+                    </a>
+                    <a href="#trustSection" class="inline-flex items-center gap-2 border-2 border-white/30 hover:border-cyan-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                        <i class="fas fa-shield-alt"></i> Quality Standards
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:block reveal" style="transition-delay: 0.2s">
+                <div class="relative p-3 border border-white/15 rounded-[3rem] overflow-hidden bg-gradient-to-br from-cyan-500/10 to-transparent">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=800" class="rounded-[2.5rem] w-full" alt="Laboratory Copper Gas Pipeline">
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Trust & Safety Section (Builds Credibility) -->
+    <section id="trustSection" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-cyan-100 text-cyan-700 rounded-full">Why Laboratories Trust Us</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Precision Gas Systems for <span class="text-cyan-600">Critical Environments</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Laboratory gas pipelines demand the highest standards of purity, safety, and reliability. We deliver excellence every time.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">ISO 17025 Certified</h3>
+                    <p class="text-gray-600 text-sm">Internationally recognized lab standards</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tachometer-alt text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Ultra-High Purity</h3>
+                    <p class="text-gray-600 text-sm">99.999% pure gas delivery guaranteed</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Real-Time Monitoring</h3>
+                    <p class="text-gray-600 text-sm">Pressure & purity sensors integrated</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-3xl text-cyan-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">24/7 Technical Support</h3>
+                    <p class="text-gray-600 text-sm">Dedicated lab gas specialists</p>
+                </div>
+            </div>
+
+            <!-- Safety Checklist -->
+            <div class="bg-[#0a192f] rounded-3xl p-8 md:p-12 text-white reveal">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Laboratory Gas System Standards</h3>
+                        <p class="text-gray-300 mb-6">Every installation meets rigorous laboratory requirements:</p>
+                        <div class="space-y-3">
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-cyan-400 text-xl"></i>
+                                <span>Electrolytically polished copper tubing (1/4" to 1")</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-cyan-400 text-xl"></i>
+                                <span>Orbital welded joints for zero contamination</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-cyan-400 text-xl"></i>
+                                <span>Helium leak testing at every connection</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-cyan-400 text-xl"></i>
+                                <span>Point-of-use filters and regulators</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-cyan-400 text-xl"></i>
+                                <span>Full system purging and certification</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-6 text-center">
+                        <div class="text-6xl font-black text-cyan-400 mb-2">150+</div>
+                        <p class="text-gray-300 mb-4">Laboratories Equipped</p>
+                        <div class="flex justify-center gap-8 mt-4">
+                            <div>
+                                <div class="stat-number text-white text-2xl">100%</div>
+                                <p class="text-xs text-gray-400">Contamination-Free</p>
+                            </div>
+                            <div>
+                                <div class="stat-number text-white text-2xl">15+</div>
+                                <p class="text-xs text-gray-400">Years Warranty</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery - Professional Collage with 5 Images -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Laboratory Gas <span class="text-cyan-600">Installation Gallery</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Precision laboratory gas systems installed in research facilities, hospitals, and analytical labs.</p>
+            </div>
+
+            <!-- 5-Image Collage Grid -->
+            <div class="lab-collage reveal">
+                <!-- Image 1 - Hero Image (Large) -->
+                <div class="collage-item">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?auto=format&fit=crop&w=1000" alt="Laboratory gas manifold system">
+                    <div class="collage-overlay">
+                        <p class="font-semibold">🔬 Central Lab Gas Manifold</p>
+                        <p class="text-sm text-cyan-300">Multi-gas distribution system</p>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/4e/4a/e6/4e4ae66e0252377a0c1379e47f3e33fc.jpg" alt="Copper gas lines in laboratory">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Ultra-Pure Copper Lines</p>
+                        <p class="text-sm text-cyan-300">Electropolished interior surface</p>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/6d/b1/d2/6db1d2ac06297d64963684d1301a172e.jpg" alt="Gas regulators and valves">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Precision Regulators</p>
+                        <p class="text-sm text-cyan-300">Point-of-use control stations</p>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="collage-item">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800" alt="Laboratory gas pipeline installation">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Research Lab Installation</p>
+                        <p class="text-sm text-cyan-300">Complete gas distribution network</p>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/41/c5/f2/41c5f288f67ca880451fad66a35f9d43.jpg" alt="Gas shut-off and safety system">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Emergency Shut-Off System</p>
+                        <p class="text-sm text-cyan-300">Remote safety controls</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Copper for Laboratory? - Educational Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-cyan-50 to-teal-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-cyan-200 text-cyan-800 rounded-full">Why Copper for Labs?</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-6">Why Laboratories <span class="text-cyan-600">Choose Copper</span></h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <i class="fas fa-microscope text-cyan-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Inert & Non-Reactive</strong> — Copper doesn't react with most lab gases, ensuring sample integrity.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-biohazard text-cyan-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Bacteria Resistant</strong> — Natural antimicrobial properties prevent contamination.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-chart-bar text-cyan-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Consistent Flow</strong> — Smooth interior surface maintains laminar gas flow.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-leaf text-cyan-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Fully Recyclable</strong> — Sustainable choice for green laboratories.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl reveal">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold">Copper vs Other Materials</h3>
+                        <i class="fas fa-flask text-3xl text-cyan-500"></i>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Purity Retention</span>
+                            <span><span class="text-cyan-600 font-bold">99.999%</span> (Copper) vs 99.9% (Others)</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Leak Rate</span>
+                            <span><span class="text-cyan-600 font-bold">&lt;1×10⁻⁹</span> mbar·L/s vs Higher</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Installation Standards</span>
+                            <span><span class="text-cyan-600 font-bold">Orbital Welding</span> vs Mechanical Fittings</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Certification</span>
+                            <span><span class="text-cyan-600 font-bold">ISO 17025</span> vs Basic Standards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gases We Handle Section -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Gases We <span class="text-cyan-600">Handle</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Complete laboratory gas distribution solutions for all common and specialty gases.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 reveal">
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-wind text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Nitrogen (N₂)</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-fire text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Hydrogen (H₂)</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-tint text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Oxygen (O₂)</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-cloud text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Argon (Ar)</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-burn text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Helium (He)</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl text-center hover:shadow-lg transition">
+                    <i class="fas fa-flask text-2xl text-cyan-600 mb-2"></i>
+                    <p class="font-semibold">Specialty Mixes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Trusted by <span class="text-cyan-600">Research Institutions</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Feedback from laboratory managers and research directors.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl reveal shadow-md">
+                    <div class="flex text-cyan-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"The copper gas distribution system they installed is flawless. Our GC-MS results have never been more consistent. Zero contamination after 2 years."</p>
+                    <div class="font-bold">— Dr. Sarah Chen</div>
+                    <div class="text-sm text-gray-500">Research Director, BioTech Labs</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl reveal shadow-md">
+                    <div class="flex text-cyan-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"They understood our purity requirements perfectly. The orbital welding and helium leak testing gave us complete confidence in the system."</p>
+                    <div class="font-bold">— Prof. Michael Torres</div>
+                    <div class="text-sm text-gray-500">Analytical Chemistry Dept.</div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl reveal shadow-md">
+                    <div class="flex text-cyan-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Installation was professional and minimally disruptive. The real-time monitoring system is a game-changer for our lab safety protocols."</p>
+                    <div class="font-bold">— Dr. Anita Sharma</div>
+                    <div class="text-sm text-gray-500">Lab Operations Manager</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-[#0a192f] to-[#0891b2] text-white">
+        <div class="container mx-auto max-w-4xl text-center reveal">
+            <i class="fas fa-microscope text-5xl text-cyan-300 mb-6"></i>
+            <h2 class="text-3xl md:text-4xl font-black mb-4">Need a Laboratory Gas System?</h2>
+            <p class="text-xl text-gray-200 mb-8">Get a free consultation from our lab gas specialists today.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#" id="ctaQuoteBtn" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg">
+                    <i class="fas fa-phone-alt"></i> Call: +91 98765 43210
+                </a>
+                <a href="#" id="ctaWhatsappBtn" class="inline-flex items-center gap-2 border-2 border-cyan-500 hover:bg-cyan-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                </a>
+            </div>
+            <p class="text-gray-300 text-sm mt-6">* Free site assessment | 15-year warranty | ISO 17025 certified</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 px-6 text-center text-gray-400 text-sm">
+        <p>© 2026 LabGas Copper Systems. Professional Laboratory Gas Pipeline Installation.</p>
+        <p class="mt-2">ISO 17025 Certified · Gas Safety Compliant · Ultra-Pure Systems</p>
+    </footer>
+
+    <script>
+        // Reveal Animations on Scroll
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Quote Button Handlers
+        
+        
+        document.getElementById('ctaWhatsappBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://wa.me/919876543210?text=Hello%2C%20I%20need%20a%20quote%20for%20laboratory%20copper%20gas%20pipeline%20installation', '_blank');
+        });
+
+        // Counter Animation for stats
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = parseInt(counter.innerText);
+            if (!isNaN(target) && target > 0) {
+                let current = 0;
+                const increment = target / 30;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            }
+        });
+    </script>
+</body>
+</html>

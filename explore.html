@@ -297,7 +297,7 @@
                         <li><a class="dropdown-item service-nav-item" data-service="copper" href="#">Copper Pipeline</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="quote.html">Get Quote</a></li>
+                <li class="nav-item"><a class="nav-link" href="quotes.html">Get Quote</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             </ul>
         </div>
@@ -328,7 +328,7 @@
                         <p class="service-description">
                             Complete residential gas and water pipeline solutions. We specialize in safe, durable copper and MS piping for apartments, villas, and housing complexes. Our installations meet all safety standards with 10-year warranty on workmanship.
                         </p>
-                        <button class="btn-explore explore-btn" data-service="Residential Pipeline">
+                        <button class="btn-explore explore-btn" data-service="Residential Pipeline" id='residentialBtn'>
                             Explore Service <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -348,7 +348,7 @@
                         <p class="service-description">
                             Precision-engineered gas distribution systems for research labs, hospitals, and educational institutions. We install high-purity copper lines for medical gases, vacuum systems, and specialty gases with zero-leakage certification.
                         </p>
-                        <button class="btn-explore explore-btn" data-service="Laboratory Pipeline">
+                        <button class="btn-explore explore-btn" data-service="Laboratory Pipeline" id="labBtn">
                             Explore Service <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -359,7 +359,7 @@
             <div class="swiper-slide">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800&h=600&fit=crop" alt="Mild Steel Pipeline">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLxoNsdGp75Pn5JEVIK4WABdGuQAW2GcMNVw&s" alt="Mild Steel Pipeline">
                         <div class="service-overlay"></div>
                         
                     </div>
@@ -368,7 +368,7 @@
                         <p class="service-description">
                             Heavy-duty Mild Steel pipeline solutions for industrial applications. Ideal for steam lines, compressed air systems, and industrial gas networks. Our MS pipelines feature anti-corrosion coating and high-pressure tolerance.
                         </p>
-                        <button class="btn-explore explore-btn" data-service="MS Pipeline">
+                        <button class="btn-explore explore-btn" data-service="MS Pipeline" id="msBtn">
                             Explore Service <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -388,7 +388,7 @@
                         <p class="service-description">
                             Premium copper piping solutions for HVAC, refrigeration, medical gas, and potable water systems. Our copper installations offer superior corrosion resistance, excellent thermal conductivity, and long-lasting reliability.
                         </p>
-                        <button class="btn-explore explore-btn" data-service="Copper Pipeline">
+                        <button class="btn-explore explore-btn" data-service="Copper Pipeline" id='copperBtn' >
                             Explore Service <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -490,73 +490,6 @@
         }
     });
 
-    // Service detailed content for modal
-    const serviceDetails = {
-        'Residential Pipeline': {
-            title: '🏠 Residential Pipeline Solutions',
-            icon: 'fa-home',
-            description: `Our residential pipeline services ensure safe, reliable gas and water distribution for homes and apartments. 
-            <br><br>
-            <strong>Key Features:</strong>
-            <ul class="mt-2">
-                <li>High-grade copper and MS piping for durability</li>
-                <li>Leak-proof joints with advanced welding techniques</li>
-                <li>Compliant with local safety codes</li>
-                <li>10-year workmanship warranty</li>
-                <li>24/7 emergency support for residential clients</li>
-            </ul>
-            <strong>Applications:</strong> Kitchen gas lines, water supply, heating systems, and backup gas connections.`,
-            image: "images/res.png"
-        },
-        'Laboratory Pipeline': {
-            title: '🔬 Laboratory & Medical Gas Systems',
-            icon: 'fa-flask',
-            description: `Precision gas distribution systems for research facilities, hospitals, and educational labs.
-            <br><br>
-            <strong>Key Features:</strong>
-            <ul class="mt-2">
-                <li>High-purity copper piping for medical gases</li>
-                <li>Zero-leakage certified installations</li>
-                <li>Custom manifold systems for multiple gas types</li>
-                <li>Compliant with ISO 7396-1 standards</li>
-                <li>Annual maintenance and testing services</li>
-            </ul>
-            <strong>Applications:</strong> Medical oxygen, vacuum systems, nitrous oxide, compressed air, and specialty research gases.`,
-            image: "images/lab.png"
-        },
-        'MS Pipeline': {
-            title: '⚙️ Mild Steel Industrial Pipelines',
-            icon: 'fa-industry',
-            description: `Heavy-duty MS pipeline solutions for demanding industrial environments.
-            <br><br>
-            <strong>Key Features:</strong>
-            <ul class="mt-2">
-                <li>High-pressure tolerance up to 20 bar</li>
-                <li>Anti-corrosion epoxy coating</li>
-                <li>Welded and flanged joint options</li>
-                <li>Custom fabrication for any scale</li>
-                <li>On-site installation with minimal downtime</li>
-            </ul>
-            <strong>Applications:</strong> Steam lines, compressed air networks, industrial gas supply, and structural pipe systems.`,
-            image: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=600&h=400&fit=crop'
-        },
-        'Copper Pipeline': {
-            title: '🔧 Premium Copper Piping',
-            icon: 'fa-copper-coin',
-            description: `Superior copper piping solutions for HVAC, refrigeration, and sensitive fluid systems.
-            <br><br>
-            <strong>Key Features:</strong>
-            <ul class="mt-2">
-                <li>Corrosion-resistant high-purity copper</li>
-                <li>Excellent thermal conductivity</li>
-                <li>Lead-free and safe for potable water</li>
-                <li>Brazed joints for maximum strength</li>
-                <li>20+ years of reliable performance</li>
-            </ul>
-            <strong>Applications:</strong> HVAC systems, refrigeration lines, medical gas, solar water heaters, and premium plumbing.`,
-            image: 'https://images.unsplash.com/photo-1581092160562-40aa08e7882f?w=600&h=400&fit=crop'
-        }
-    };
 
     // Modal functionality for Explore buttons
     const exploreButtons = document.querySelectorAll('.explore-btn');
@@ -648,6 +581,10 @@
     if (whatsappLink) {
         whatsappLink.href = "https://wa.me/919876543210?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20pipeline%20services";
     }
+     document.getElementById('residentialBtn').onclick = () => location.href = 'res.html';
+     document.getElementById('copperBtn').onclick = () => location.href= 'copper.html';
+     document.getElementById('labBtn').onclick=()=>location.href='lab.html';
+     document.getElementById('msBtn').onclick=()=>location.href='mspip.html';
 </script>
 </body>
 </html>

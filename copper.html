@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Elite Gas Copper | Premium LPG & Natural Gas Pipeline Installation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --copper: #b87333;
+            --accent: #f97316;
+            --gas-blue: #0284c7;
+            --dark-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--navy);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Trust Badge Animation */
+        .trust-badge {
+            transition: all 0.3s ease;
+        }
+        .trust-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Professional Collage Grid - 5 Images in Masonry Layout */
+        .gas-collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 220px;
+            gap: 1.25rem;
+        }
+
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+        }
+
+        .collage-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.25);
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .collage-item:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Specific spans for collage layout */
+        .collage-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .collage-item:nth-child(2) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(3) {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(4) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .collage-item:nth-child(5) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        /* Image Overlay */
+        .collage-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
+            padding: 1.25rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .collage-item:hover .collage-overlay {
+            transform: translateY(0);
+        }
+
+        .collage-overlay p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive Collage */
+        @media (max-width: 768px) {
+            .gas-collage {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .collage-item {
+                min-height: 220px;
+                width: 100%;
+            }
+            .collage-item:nth-child(1),
+            .collage-item:nth-child(2),
+            .collage-item:nth-child(3),
+            .collage-item:nth-child(4),
+            .collage-item:nth-child(5) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .collage-overlay {
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(10, 25, 47, 0.85), transparent);
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .gas-collage {
+                grid-auto-rows: 180px;
+                gap: 1rem;
+            }
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: white;
+            color: var(--navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Safety Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(249, 115, 22, 0.08);
+            transform: translateX(5px);
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 1rem;
+                left: 1rem;
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 99;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            padding: 1rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                padding: 0.75rem 1.2rem;
+                font-size: 0.85rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <a href="explore.html" class="back-btn" title="Go Back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+    </a>
+
+    <!-- Floating CTA -->
+    <a href="quotes.html" id="floatingCta" class="floating-cta">
+        <i class="fas fa-gas-pump"></i>
+        <span>Get Free Quote</span>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center bg-gradient-to-br from-[#0a192f] via-[#0f2a3f] to-[#0a192f] text-white overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-cyan-600/10 blur-[120px] rounded-full"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-orange-600 to-amber-500 rounded-full">
+                    <i class="fas fa-fire mr-2"></i> Gas Safety Certified
+                </span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1]">
+                    Cooking Gas <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Copper Pipeline</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+                    Safe, leak-proof, and durable copper gas piping for LPG and natural gas. Protect your home and family with professional installation.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                   
+                    <a href="#trustSection" class="inline-flex items-center gap-2 border-2 border-white/30 hover:border-orange-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                        <i class="fas fa-shield-alt"></i> Why Trust Us
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:block reveal" style="transition-delay: 0.2s">
+                <div class="relative p-3 border border-white/15 rounded-[3rem] overflow-hidden bg-gradient-to-br from-orange-500/10 to-transparent">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800" class="rounded-[2.5rem] w-full" alt="Copper Gas Pipeline Installation">
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Trust & Safety Section (Builds Credibility) -->
+    <section id="trustSection" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-orange-100 text-orange-700 rounded-full">Why Homeowners Trust Us</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Your Safety is Our <span class="text-orange-600">#1 Priority</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Copper gas pipelines require precision, expertise, and uncompromising safety standards. Here's why we're the preferred choice.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Gas Safety Certified</h3>
+                    <p class="text-gray-600 text-sm">Licensed professionals with advanced gas safety training</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Leak-Proof Warranty</h3>
+                    <p class="text-gray-600 text-sm">15-year warranty on all copper gas line installations</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-flask text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">Pressure Tested</h3>
+                    <p class="text-gray-600 text-sm">Every installation undergoes rigorous pressure testing</p>
+                </div>
+                <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-3xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-2">24/7 Emergency Support</h3>
+                    <p class="text-gray-600 text-sm">Round-the-clock assistance for gas-related emergencies</p>
+                </div>
+            </div>
+
+            <!-- Safety Checklist -->
+            <div class="bg-[#0a192f] rounded-3xl p-8 md:p-12 text-white reveal">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Our Gas Pipeline Safety Checklist</h3>
+                        <p class="text-gray-300 mb-6">Every installation follows a strict 15-point safety protocol:</p>
+                        <div class="space-y-3">
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
+                                <span>100% Copper piping (no cheap alloys)</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
+                                <span>Anti-corrosion coating on all exposed sections</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
+                                <span>Soap bubble leak test on all joints</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
+                                <span>Proper earthing and static protection</span>
+                            </div>
+                            <div class="checklist-item">
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
+                                <span>Clear labeling and emergency shut-off valve</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-6 text-center">
+                        <div class="text-6xl font-black text-orange-500 mb-2">25+</div>
+                        <p class="text-gray-300 mb-4">Years of Gas Pipeline Experience</p>
+                        <div class="flex justify-center gap-8 mt-4">
+                            <div>
+                                <div class="stat-number text-white text-2xl">5000+</div>
+                                <p class="text-xs text-gray-400">Homes Protected</p>
+                            </div>
+                            <div>
+                                <div class="stat-number text-white text-2xl">0</div>
+                                <p class="text-xs text-gray-400">Safety Incidents</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery - Professional Collage with 5 Images -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Our Copper Gas <span class="text-orange-600">Installation Gallery</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Real projects. Real craftsmanship. See the quality of our copper gas pipeline installations.</p>
+            </div>
+
+            <!-- 5-Image Collage Grid -->
+            <div class="gas-collage reveal">
+                <!-- Image 1 - Hero Image (Large) -->
+                <div class="collage-item">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000" alt="Professional copper gas line installation">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Precision Copper Gas Line</p>
+                        <p class="text-sm text-orange-300">Expert brazed joints | Leak-proof guarantee</p>
+                    </div>
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/4e/4a/e6/4e4ae66e0252377a0c1379e47f3e33fc.jpg" alt="Gas manifold system">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Central Gas Manifold</p>
+                        <p class="text-sm text-orange-300">Multi-point distribution system</p>
+                    </div>
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/6d/b1/d2/6db1d2ac06297d64963684d1301a172e.jpg" alt="Copper pipe connections">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Secure Connections</p>
+                        <p class="text-sm text-orange-300">Brazed copper fittings</p>
+                    </div>
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/9a/fb/9d/9afb9dca59f29f8038f6d4ad24d7d050.jpg" alt="Gas pipeline routing">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Wall-Routed Gas Lines</p>
+                        <p class="text-sm text-orange-300">Clean & concealed installation</p>
+                    </div>
+                </div>
+                
+                <!-- Image 5 -->
+                <div class="collage-item">
+                    <img src="https://i.pinimg.com/736x/41/c5/f2/41c5f288f67ca880451fad66a35f9d43.jpg" alt="Complete gas installation">
+                    <div class="collage-overlay">
+                        <p class="font-semibold"> Complete Gas System</p>
+                        <p class="text-sm text-orange-300">Stove + water heater ready</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Copper for Gas? - Educational Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-orange-50 to-amber-50">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-orange-200 text-orange-800 rounded-full">Why Copper?</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-6">Why Choose Copper for <span class="text-orange-600">Gas Pipelines?</span></h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <i class="fas fa-microbe text-orange-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Corrosion Resistant</strong> — Copper naturally resists corrosion, ensuring decades of safe gas flow.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-fire-extinguisher text-orange-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Fire Resistant</strong> — Copper won't burn or propagate flames in case of external fire.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-hand-holding-usd text-orange-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">Long-Term Value</strong> — Lower maintenance, fewer replacements, and better property resale value.</div>
+                        </div>
+                        <div class="flex gap-3">
+                            <i class="fas fa-leaf text-orange-600 text-xl mt-1"></i>
+                            <div><strong class="font-bold">100% Recyclable</strong> — Eco-friendly choice for environmentally conscious homeowners.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl reveal">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold">Copper vs Alternatives</h3>
+                        <i class="fas fa-chart-simple text-3xl text-orange-500"></i>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Lifespan</span>
+                            <span><span class="text-orange-600 font-bold">50+ years</span> (Copper) vs 20-30 years (others)</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Leak Risk</span>
+                            <span><span class="text-orange-600 font-bold">Minimal</span> vs Moderate-High</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Safety Rating</span>
+                            <span><span class="text-orange-600 font-bold">Class A</span> Fire Rated</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                            <span class="font-semibold">Warranty</span>
+                            <span><span class="text-orange-600 font-bold">15-25 years</span> vs 5-10 years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Trusted by <span class="text-orange-600">500+ Families</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Real feedback from homeowners who chose our copper gas pipeline services.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-2xl reveal">
+                    <div class="flex text-orange-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"The copper gas line installation was flawless. They pressure tested everything and explained the safety features. Highly professional!"</p>
+                    <div class="font-bold">— Priya Mehta</div>
+                    <div class="text-sm text-gray-500">Homeowner, Bangalore</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl reveal">
+                    <div class="flex text-orange-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Very happy with the copper piping for our LPG connection. No more rubber tube worries. Great workmanship!"</p>
+                    <div class="font-bold">— Rajesh Kumar</div>
+                    <div class="text-sm text-gray-500">Homeowner, Chennai</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl reveal">
+                    <div class="flex text-orange-500 mb-3">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"They completed the entire gas pipeline installation in one day. Clean, safe, and very reasonable pricing."</p>
+                    <div class="font-bold">— Anjali Nair</div>
+                    <div class="text-sm text-gray-500">Homeowner, Mumbai</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 px-6 bg-[#0a192f] text-white">
+        <div class="container mx-auto max-w-4xl text-center reveal">
+            <i class="fas fa-gas-pump text-5xl text-orange-500 mb-6"></i>
+            <h2 class="text-3xl md:text-4xl font-black mb-4">Ready for a Safe & Reliable Gas System?</h2>
+            <p class="text-xl text-gray-300 mb-8">Get a free, no-obligation quote from our gas pipeline specialists today.</p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="#" id="ctaQuoteBtn" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg">
+                    <i class="fas fa-phone-alt"></i> Call: +91 98765 43210
+                </a>
+                <a href="#" id="ctaWhatsappBtn" class="inline-flex items-center gap-2 border-2 border-orange-500 hover:bg-orange-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm mt-6">* Free site inspection | 15-year warranty | Emergency support available</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 py-8 px-6 text-center text-gray-400 text-sm">
+        <p>© 2026 Elite Gas Copper Systems. Professional LPG & Natural Gas Pipeline Installation.</p>
+        <p class="mt-2">Licensed · Insured · Gas Safety Certified</p>
+    </footer>
+
+    <script>
+        // Reveal Animations on Scroll
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Quote Button Handlers
+       
+        
+        document.getElementById('ctaWhatsappBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://wa.me/919876543210?text=Hello%2C%20I%20need%20a%20quote%20for%20copper%20gas%20pipeline%20installation', '_blank');
+        });
+
+        // Counter Animation for stats
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = parseInt(counter.innerText);
+            if (!isNaN(target) && target > 0) {
+                let current = 0;
+                const increment = target / 30;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            }
+        });
+    </script>
+</body>
+</html>

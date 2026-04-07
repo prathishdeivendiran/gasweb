@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Residential Copper | Precision Piping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a192f;
+            --copper: #b87333;
+            --accent: #f97316;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: var(--navy);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+        /* Modern Glassmorphism Nav */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Advanced Grid Animation */
+        .copper-collage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 160px;
+            gap: 1rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 1024px) {
+            .copper-collage {
+                grid-template-columns: repeat(4, 1fr);
+                grid-auto-rows: 220px;
+            }
+            .item-tall { grid-row: span 2; }
+            .item-wide { grid-column: span 2; }
+        }
+
+        /* Enhanced Testimonial Stack */
+        .stack-container {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            perspective: 1200px;
+        }
+
+        .testimonial-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(10, 25, 47, 0.15);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent);
+        }
+
+        /* Floating Back Button */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: white;
+            color: var(--navy);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <a href="explore.html" class="back-btn" title="Go Back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    </a>
+
+    <section class="relative min-h-[90vh] flex items-center bg-[#0a192f] text-white overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal">
+                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-orange-600 to-amber-500 rounded-full">Master Craftsmanship</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1]">
+                    The Era of <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-600">Pure Copper</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-10 max-w-xl">
+                    We don't just install pipes; we engineer residential water systems that prevent corrosion, eliminate bacteria, and increase property value.
+                </p>
+                <div>
+                    <a href="quotes.html" class="inline-block bg-orange-600 hover:bg-orange-500 text-white font-bold py-5 px-12 rounded-2xl transition-all shadow-[0_20px_40px_rgba(234,88,12,0.3)] hover:-translate-y-1">
+                        Request Priority Quote
+                    </a>
+                </div>
+            </div>
+            <div class="hidden lg:block reveal" style="transition-delay: 0.2s">
+                <div class="relative p-4 border border-white/10 rounded-[3rem] overflow-hidden group">
+                    <img src="https://www.shutterstock.com/image-illustration/copper-pipe-maze-on-black-600nw-2285989987.jpg" class="rounded-[2.5rem] " alt="Copper Hero">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+            <div class="max-w-xl">
+                <h2 class="text-4xl font-black text-[#0a192f] mb-4 uppercase tracking-tighter">Live Project Gallery</h2>
+                <p class="text-gray-500">Every image represents a verified residential installation completed by our master technicians.</p>
+            </div>
+            <div class="h-px bg-gray-200 flex-grow mx-8 mb-4 hidden md:block"></div>
+        </div>
+        
+        <div class="copper-collage reveal">
+            <div class="item-tall overflow-hidden rounded-[2rem] group relative">
+                <img src="https://i.pinimg.com/736x/4e/4a/e6/4e4ae66e0252377a0c1379e47f3e33fc.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold italic">Mainline Excellence</div>
+            </div>
+            <div class="overflow-hidden rounded-[2rem] group"><img src="https://i.pinimg.com/736x/6d/b1/d2/6db1d2ac06297d64963684d1301a172e.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="item-wide overflow-hidden rounded-[2rem] group"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="overflow-hidden rounded-[2rem] group"><img src="https://i.pinimg.com/736x/9a/fb/9d/9afb9dca59f29f8038f6d4ad24d7d050.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="overflow-hidden rounded-[2rem] group"><img src="https://i.pinimg.com/736x/e0/ef/d7/e0efd7ff904f20ca832618db0c798936.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="item-tall overflow-hidden rounded-[2rem] group"><img src="https://i.pinimg.com/736x/41/c5/f2/41c5f288f67ca880451fad66a35f9d43.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="overflow-hidden rounded-[2rem] group"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+            <div class="overflow-hidden rounded-[2rem] group"><img src="https://i.pinimg.com/736x/4d/0d/81/4d0d816dbb2de8163f2c93826f6aea4b.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-navy text-white relative">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-black mb-8">What Homeowners <br><span class="text-orange-500">Really Think.</span></h2>
+                <p class="text-gray-400 mb-8">Our reputation is as solid as our copper pipes. We invite you to browse our latest client feedback from the local community.</p>
+                <div class="flex items-center space-x-4 text-orange-500 font-bold">
+                    <span class="text-5xl">4.9</span>
+                    <div class="text-sm uppercase tracking-widest">Average <br> <span style="font-size:20px;"><span style="color: #4285F4; font-size:4vh;">g</span><span style="color: #EA4335; font-size:4vh;">o</span><span style="color: #FBBC05; font-size:4vh;">o</span><span style="color: #4285F4; font-size:4vh;">g</span><span style="color: #34A853;font-size:4vh;">l</span><span style="color: #EA4335;font-size:4vh;">e</span> Rating</span></div>
+                </div>
+            </div>
+
+            <div class="stack-container reveal" id="cardStack" style="transition-delay: 0.3s">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-white py-12 px-6 border-t border-gray-100 text-center">
+        <p class="text-sm font-semibold tracking-widest text-navy uppercase">© 2026 Elite Copper Systems. Residential Excellence Only.</p>
+    </footer>
+
+    <script>
+        // 1. Reveal Animations on Scroll
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 2. Testimonial Logic
+        const reviews = [
+            { name: "Robert Howell", text: "The copper manifold they installed is like a piece of art. Water pressure is perfect now.", stars: "★★★★★" },
+            { name: "Elena Rodriguez", text: "Fast, lead-free, and left my basement cleaner than they found it. Best plumbers in town.", stars: "★★★★★" },
+            { name: "James T. Kirk", text: "The 25-year warranty gave me peace of mind. You get what you pay for with copper.", stars: "★★★★★" },
+            { name: "Linda Chen", text: "Amazing attention to detail. No more leaks, and no more rattling pipes!", stars: "★★★★★" }
+        ];
+
+        const stack = document.getElementById('cardStack');
+
+        function initStack() {
+            stack.innerHTML = '';
+            reviews.forEach((review, i) => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card text-navy';
+                card.style.zIndex = reviews.length - i;
+                
+                const scale = 1 - (i * 0.08);
+                const translateY = i * 30;
+                const rotate = i * -2;
+                
+                card.style.transform = `scale(${scale}) translateY(${translateY}px) rotate(${rotate}deg)`;
+                card.style.opacity = 1 - (i * 0.2);
+                
+                card.innerHTML = `
+                    <div class="text-orange-500 text-2xl mb-4">${review.stars}</div>
+                    <p class="text-gray-800 text-xl font-medium italic mb-8">"${review.text}"</p>
+                    <div class="flex items-center border-t border-gray-100 pt-6">
+                        <div class="w-12 h-12 bg-navy rounded-full mr-4 flex items-center justify-center text-black font-bold" >
+                            ${review.name.charAt(0)}
+                        </div>
+                        <span class="font-black uppercase tracking-wider text-sm" style="color:black;">${review.name}</span>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => shuffle(card));
+                stack.appendChild(card);
+            });
+        }
+
+        function shuffle(card) {
+            card.style.transform = 'translateX(200%) rotate(45deg) scale(0.5)';
+            card.style.opacity = '0';
+            
+            setTimeout(() => {
+                const first = reviews.shift();
+                reviews.push(first);
+                initStack();
+            }, 500);
+        }
+
+        initStack();
+    </script>
+</body>
+</html>
