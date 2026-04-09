@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact Us | MOORTHY Service & Enterprises — Precision Copper & MS Pipeline Installation</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 30% 20%, #0e0e1a 0%, #030308 100%);
+            color: #d0d0d0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(5, 5, 10, 0.96) !important;
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(201, 112, 42, 0.4);
+            padding: 0.7rem 1.5rem;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+            color: #c9702a !important;
+        }
+        .navbar-brand span:first-child {
+            color: #c9702a;
+        }
+        .navbar-brand span:last-child {
+            color: white;
+        }
+        .nav-link {
+            color: #ddd !important;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #c9702a !important;
+        }
+        .dropdown-menu {
+            background: rgba(10, 10, 18, 0.96);
+            backdrop-filter: blur(10px);
+            border: 1px solid #c9702a;
+        }
+        .dropdown-item {
+            color: #ddd;
+        }
+        .dropdown-item:hover {
+            background: #c9702a20;
+            color: #c9702a;
+        }
+
+        /* Contact Hero Section */
+        .contact-hero {
+            padding: 7rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+        }
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #d97a2e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .contact-hero p {
+            font-size: 1.1rem;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Cards */
+        .contact-info-section {
+            padding: 2rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .contact-card {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(201, 112, 42, 0.35);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+        .contact-card:hover {
+            transform: translateY(-8px);
+            border-color: #d97a2e;
+            box-shadow: 0 20px 35px -15px rgba(217, 122, 46, 0.3);
+        }
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #d97a2e20, #d97a2e10);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            border: 1px solid rgba(217, 122, 46, 0.5);
+        }
+        .contact-icon i {
+            font-size: 2rem;
+            color: #d97a2e;
+        }
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #d97a2e;
+            margin-bottom: 1rem;
+        }
+        .contact-card p {
+            color: #bbb;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .contact-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        .contact-number:hover {
+            color: #d97a2e;
+        }
+        .btn-contact {
+            background: transparent;
+            border: 1.5px solid #d97a2e;
+            color: #d97a2e;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-top: 0.5rem;
+        }
+        .btn-contact:hover {
+            background: #d97a2e;
+            color: #0a0a0a;
+            transform: translateX(5px);
+        }
+        .btn-whatsapp {
+            border-color: #25D366;
+            color: #25D366;
+        }
+        .btn-whatsapp:hover {
+            background: #25D366;
+            color: #0a0a0a;
+        }
+        .btn-call {
+            border-color: #0077ff;
+            color: #0077ff;
+        }
+        .btn-call:hover {
+            background: #0077ff;
+            color: #fff;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 2rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .map-container {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(201, 112, 42, 0.35);
+            overflow: hidden;
+            padding: 1rem;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            border: none;
+        }
+        .address-box {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(201, 112, 42, 0.35);
+            padding: 1.8rem;
+            height: 100%;
+        }
+        .address-box h4 {
+            color: #d97a2e;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+        .address-detail {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            align-items: flex-start;
+        }
+        .address-detail i {
+            color: #d97a2e;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+        .address-detail p {
+            margin: 0;
+            color: #bbb;
+            line-height: 1.6;
+        }
+        .business-hours {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(217, 122, 46, 0.3);
+        }
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            color: #bbb;
+        }
+        .hours-day {
+            font-weight: 600;
+            color: #d97a2e;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            padding: 2rem 1.5rem 4rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .form-container {
+            background: rgba(10, 10, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(201, 112, 42, 0.35);
+            padding: 2rem;
+        }
+        .form-container h3 {
+            color: #d97a2e;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        .form-control, .form-select {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(217, 122, 46, 0.3);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+        .form-control:focus, .form-select:focus {
+            background: rgba(0, 0, 0, 0.7);
+            border-color: #d97a2e;
+            box-shadow: 0 0 10px rgba(217, 122, 46, 0.3);
+            color: #fff;
+        }
+        .form-control::placeholder {
+            color: #888;
+        }
+        label {
+            color: #d97a2e;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #b85e1a, #d97a2e);
+            border: none;
+            color: #fff;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-submit:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(217, 122, 46, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #020208;
+            border-top: 1px solid rgba(201,112,42,0.2);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        /* Floating Action Buttons */
+        .floating-actions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+        .whatsapp-float {
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background: #20b859;
+            color: white;
+        }
+        .call-float {
+            background: #0077ff;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+        .call-float:hover {
+            transform: scale(1.05);
+            background: #0066dd;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .contact-hero { padding: 6rem 1rem 2rem 1rem; }
+            .contact-hero h1 { font-size: 2rem; }
+            .contact-card { padding: 1.5rem; }
+            .contact-number { font-size: 1.1rem; }
+            .map-container iframe { height: 300px; }
+            .floating-actions span { display: none; }
+            .whatsapp-float, .call-float { padding: 12px; }
+            .floating-actions i { margin: 0; font-size: 1.3rem; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #c9702a; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><span>MOORTHY</span><small style="font-size: 0.65rem; color:#aaa; margin-left: 6px;">Service & Enterprises</small></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="res.html">Residential</a></li>
+                        <li><a class="dropdown-item" href="lab.html">Laboratory</a></li>
+                        <li><a class="dropdown-item" href="mspip.html">MS Pipeline</a></li>
+                        <li><a class="dropdown-item" href="copper.html">Copper Pipeline</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="quotes.html">Get Quote</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contact Hero Section -->
+<section class="contact-hero">
+    <div style="margin-top:25px;">
+    <h1><i class="fas fa-headset me-3"></i> Get In Touch</h1>
+    <p>Have a project in mind? Need expert pipeline installation? We're here to help. Reach out to us anytime.</p>
+    </div>
+</section>
+
+<!-- Contact Cards Section -->
+<div class="contact-info-section">
+    <div class="row g-4">
+        <!-- WhatsApp & Call Card (Both Actions) -->
+        <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp & Call</h3>
+                <p>For quick quotes, support, and emergency services. Available 24/7.</p>
+                <a href="https://wa.me/916382784034?text=Hello%2C%20I%20need%20assistance%20with%20pipeline%20installation" class="contact-number" target="_blank">
+                    <i class="fab fa-whatsapp"></i> +91 63827 84034
+                </a>
+                <br>
+                <a href="tel:+916382784034" class="contact-number" style="font-size: 1rem; display: inline-block; margin-top: 5px;">
+                    <i class="fas fa-phone-alt"></i> +91 63827 84034 (Call)
+                </a>
+                <div class="mt-3">
+                    <a href="https://wa.me/916382784034?text=Hello%2C%20I%20need%20assistance%20with%20pipeline%20installation" class="btn-contact btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Now
+                    </a>
+                    <a href="tel:+916382784034" class="btn-contact btn-call ms-2">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Only Call Card -->
+        <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Direct Call</h3>
+                <p>For general inquiries, project discussions, and business meetings.</p>
+                <a href="tel:+919876543210" class="contact-number">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210
+                </a>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">Monday - Saturday: 9 AM - 7 PM</p>
+                <div class="mt-3">
+                    <a href="tel:+919876543210" class="btn-contact btn-call">
+                        <i class="fas fa-phone-alt"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email & Support Card -->
+        <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Support</h3>
+                <p>Send us your queries and we'll respond within 24 hours.</p>
+                <a href="mailto:moorthyservice@gmail.com" class="contact-number" style="font-size: 1rem;">
+                    <i class="fas fa-envelope"></i> moorthyservice@gmail.com
+                </a>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">For project inquiries & documentation</p>
+                <div class="mt-3">
+                    <a href="mailto:moorthyservice@gmail.com" class="btn-contact">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map & Address Section -->
+<div class="map-section">
+    <div class="row g-4">
+        <div class="col-lg-7">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125382.892454916!2d78.04354043238268!3d9.925131277815365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c582b1189635%3A0xdc955b4a48a1f53a!2sMadurai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="address-box">
+                <h4><i class="fas fa-map-marker-alt me-2"></i> Our Office Location</h4>
+                <div class="address-detail">
+                    <i class="fas fa-building"></i>
+                    <p>
+                        <strong>MOORTHY Service & Enterprises</strong><br>
+                        No. 42, Anna Nagar Main Road,<br>
+                        Madurai - 625020,<br>
+                        Tamil Nadu, India
+                    </p>
+                </div>
+                <div class="address-detail">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>
+                        <strong>Contact:</strong><br>
+                        +91 63827 84034 (WhatsApp & Call)<br>
+                        +91 98765 43210 (Direct Call)
+                    </p>
+                </div>
+                <div class="address-detail">
+                    <i class="fas fa-envelope"></i>
+                    <p>
+                        <strong>Email:</strong><br>
+                        moorthyservice@gmail.com
+                    </p>
+                </div>
+                <div class="business-hours">
+                    <h4><i class="fas fa-clock me-2"></i> Business Hours</h4>
+                    <div class="hours-item">
+                        <span class="hours-day">Monday - Saturday:</span>
+                        <span>9:00 AM - 7:00 PM</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">Sunday:</span>
+                        <span>10:00 AM - 2:00 PM (Emergency Only)</span>
+                    </div>
+                    <div class="hours-item">
+                        <span class="hours-day">24/7 Emergency:</span>
+                        <span><i class="fas fa-phone-alt text-warning"></i> +91 63827 84034</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<footer>
+    <p>© 2026 MOORTHY Service & Enterprises — Precision Copper & MS Pipeline Installation | 24/7 Support | 35+ Years of Excellence</p>
+</footer>
+
+<!-- Floating Action Buttons -->
+<div class="floating-actions">
+    <a href="https://wa.me/916382784034?text=Hello%2C%20I%20need%20assistance%20with%20pipeline%20installation" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
+        <span>WhatsApp Us</span>
+    </a>
+    <a href="tel:+916382784034" class="call-float">
+        <i class="fas fa-phone-alt" style="font-size: 1.3rem;"></i>
+        <span>Call Now</span>
+    </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Phone numbers
+    const WHATSAPP_NUMBER = "916382784034";
+    const CALL_NUMBER = "916382784034";
+    const DIRECT_CALL_NUMBER = "919876543210";
+    
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const message = document.getElementById('message').value;
+        
+        // Create WhatsApp message
+        const whatsappMsg = `Hello MOORTHY Services,%0A%0A*New Inquiry from Website*%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service || 'Not specified'}%0A*Message:* ${message}%0A%0APlease get back to me at the earliest.`;
+        
+        // Open WhatsApp with the message
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`, '_blank');
+        
+        // Show success message
+        alert('Thank you for contacting us! We will redirect you to WhatsApp to complete your inquiry.');
+        
+        // Reset form
+        this.reset();
+    });
+    
+    // Animation on scroll for contact cards
+    const cards = document.querySelectorAll('.contact-card, .map-container, .address-box, .form-container');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0px)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(card);
+    });
+    
+    // Trigger animation for visible cards
+    setTimeout(() => {
+        cards.forEach(card => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0px)';
+        });
+    }, 200);
+</script>
+</body>
+</html>
