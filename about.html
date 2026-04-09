@@ -9,6 +9,7 @@
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ----- RESET & BASE (LIGHT THEME FOR MOST SECTIONS) ----- */
         * {
             margin: 0;
             padding: 0;
@@ -72,7 +73,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Hero section */
+        /* Hero section (light) */
         .hero {
             background: linear-gradient(135deg, #f8faff 0%, #edf2fa 100%);
             position: relative;
@@ -130,7 +131,7 @@
             color: transparent;
         }
 
-        /* Cards for mission */
+        /* Mission & Vision Cards (light) */
         .cards-grid {
             display: flex;
             flex-wrap: wrap;
@@ -159,7 +160,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* story section */
+        /* Story section (light) */
         .story-wrap {
             display: flex;
             flex-wrap: wrap;
@@ -202,129 +203,7 @@
             color: #4f46e5;
         }
 
-        /* ---------- INFINITE HORIZONTAL TICKER (FULLY RESPONSIVE) ---------- */
-        .team-ticker-section {
-            background: #fbfdff;
-            padding: 40px 0 80px 0;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-        }
-
-        .team-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            padding: 0 16px;
-        }
-
-        /* Ticker wrapper */
-        .ticker-wrapper {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            background: #ffffff;
-            padding: 20px 0;
-            border-top: 1px solid rgba(79, 70, 229, 0.1);
-            border-bottom: 1px solid rgba(79, 70, 229, 0.1);
-            box-shadow: inset 0 4px 12px rgba(0,0,0,0.02), 0 8px 20px rgba(0,0,0,0.02);
-        }
-
-        /* The moving strip - uses flex layout with dynamic width */
-        .ticker-strip {
-            display: flex;
-            gap: 2rem;
-            width: max-content;
-            will-change: transform;
-            animation: scrollTicker linear infinite;
-        }
-
-        /* Pause on hover for better UX */
-        .ticker-wrapper:hover .ticker-strip {
-            animation-play-state: paused;
-        }
-
-        /* Modern card design for each team member */
-        .ticker-card {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            background: white;
-            border-radius: 2rem;
-            padding: 1.6rem 1.8rem;
-            width: 280px;
-            text-align: center;
-            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f2f5;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(2px);
-            cursor: default;
-            flex-shrink: 0;
-        }
-
-        .ticker-card:hover {
-            transform: scale(1.02) translateY(-4px);
-            border-color: #cbd5ff;
-            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.15);
-        }
-
-        .avatar-ticker {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(145deg, #e0e7ff, #d9e2ff);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            color: #4f46e5;
-        }
-
-        .ticker-card h4 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
-        }
-
-        .team-role {
-            color: #4f46e5;
-            font-weight: 600;
-            font-size: 0.8rem;
-            margin-bottom: 0.7rem;
-            letter-spacing: 0.3px;
-        }
-
-        .team-bio {
-            font-size: 0.8rem;
-            color: #475569;
-            line-height: 1.4;
-            max-width: 230px;
-            margin: 0 auto;
-        }
-
-        /* Keyframes for infinite horizontal scroll */
-        @keyframes scrollTicker {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .ticker-hint {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-top: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        .ticker-hint i {
-            margin-right: 6px;
-        }
-
-        /* cta section */
+        /* CTA section (dark gradient) */
         .cta-section {
             background: linear-gradient(120deg, #0f172a 0%, #1e293b 100%);
             border-radius: 2rem;
@@ -368,7 +247,32 @@
             color: #5b6e8c;
         }
 
-        /* ===== FULLY RESPONSIVE MOBILE TWEAKS ===== */
+        /* Back Button (fixed colors, no transparency issues) */
+        .back-btn {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            background: white;
+            color: #1a1e2b;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: #4f46e5;
+            color: #fecb08;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
                 padding: 0 20px;
@@ -387,36 +291,12 @@
             .story-wrap {
                 flex-direction: column;
             }
-            .ticker-card {
-                width: 260px;
-                padding: 1.2rem 1rem;
-            }
-            .avatar-ticker {
-                width: 80px;
-                height: 80px;
-                font-size: 2.2rem;
-            }
-            .ticker-card h4 {
-                font-size: 1.2rem;
-            }
-            .team-bio {
-                font-size: 0.75rem;
-            }
-            .ticker-strip {
-                gap: 1.2rem;
-            }
-            .ticker-hint {
-                font-size: 0.7rem;
-            }
             .cta-section {
                 padding: 40px 24px;
             }
             .cta-section h3 {
                 font-size: 1.6rem;
             }
-        }
-
-              @media (max-width: 768px) {
             .back-btn {
                 top: 1rem;
                 left: 1rem;
@@ -425,64 +305,231 @@
             }
         }
 
-                /* Back Button */
-        .back-btn {
-            position: fixed;
-            top: 2rem;
-            left: 2rem;
-            z-index: 100;
-            background: white;
-            color: var(--navy);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-                .back-btn:hover {
-            transform: translateX(-5px);
-            background: var(--accent);
-            color: rgb(254, 209, 8);
-        }
-
-        /* Extra small devices */
-        @media (max-width: 480px) {
-            .ticker-card {
-                width: 240px;
-                padding: 1rem 0.8rem;
-            }
-            .avatar-ticker {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-            }
-            .ticker-strip {
-                gap: 1rem;
-            }
-        }
-
-        /* Prevent any horizontal overflow on mobile */
         html, body {
             max-width: 100%;
             overflow-x: hidden;
+        }
+
+        /* =====================================================
+           DARK THEME TEAM SECTION - FULLY OPAQUE, NO TRANSPARENCY
+           ===================================================== */
+        .dark-team-section {
+            background: #0f172a;   /* solid dark background */
+            padding: 64px 0 80px 0;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .dark-team-section .team-header-dark {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 0 16px;
+        }
+
+        .dark-team-section h2 {
+            color: #f8fafc;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .dark-team-section .section-sub-dark {
+            color: #94a3b8;
+            font-size: 1rem;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* ticker outer wrapper with fade edges (only gradient, but background solid) */
+        .ticker-outer {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            background: #0f172a;   /* solid base */
+        }
+
+        .ticker-outer::before,
+        .ticker-outer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .ticker-outer::before {
+            left: 0;
+            background: linear-gradient(to right, #0f172a, transparent);
+        }
+        .ticker-outer::after {
+            right: 0;
+            background: linear-gradient(to left, #0f172a, transparent);
+        }
+
+        /* Dark ticker strip */
+        #darkTickerStrip {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scrollTickerDark 34s linear infinite;
+            will-change: transform;
+        }
+        #darkTickerStrip:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollTickerDark {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Dark theme cards — fully opaque, solid colors */
+        .ticker-outer .ticker-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 24px;
+            padding: 24px 20px 20px;
+            width: 260px;
+            flex-shrink: 0;
+            text-align: center;
+            transition: border-color 0.25s, transform 0.25s;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: none;
+            box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .ticker-outer .ticker-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-5px);
+            background: #1e293b;
+        }
+
+        .ticker-outer .avatar {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            overflow: hidden;
+            border: 2.5px solid #38bdf8;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ticker-outer .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .ticker-outer .ticker-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .ticker-outer .team-role {
+            font-size: 0.72rem;
+            color: #38bdf8;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .ticker-outer .team-bio {
+            font-size: 0.8rem;
+            color: #cbd5e6;
+            line-height: 1.45;
+            margin-bottom: 16px;
+            max-width: 220px;
+        }
+
+        .ticker-outer .team-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .ticker-outer .team-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-decoration: none;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 30px;
+            padding: 5px 12px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .ticker-outer .team-links a:hover {
+            color: #38bdf8;
+            border-color: #38bdf8;
+        }
+
+        .ticker-outer .team-links svg {
+            flex-shrink: 0;
+        }
+
+        /* ticker hint inside dark section */
+        .dark-team-section .ticker-hint {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 28px;
+            letter-spacing: 0.3px;
+        }
+        .dark-team-section .ticker-hint i {
+            margin-right: 6px;
+            color: #38bdf8;
+        }
+
+        @media (max-width: 768px) {
+            .ticker-outer .ticker-card {
+                width: 240px;
+                padding: 18px 14px;
+            }
+            .ticker-outer .avatar {
+                width: 80px;
+                height: 80px;
+            }
+            .dark-team-section {
+                padding: 48px 0 64px;
+            }
+            .ticker-outer::before, .ticker-outer::after {
+                width: 40px;
+            }
+        }
+        @media (max-width: 480px) {
+            .ticker-outer .ticker-card {
+                width: 220px;
+            }
         }
     </style>
 </head>
 <body>
 
- <!-- Back Button -->
-    <a href="explore.html" class="back-btn" title="Go Back">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-        </svg>
-    </a>
+<!-- Back Button -->
+<a href="index.html" class="back-btn" title="Go Back">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+</a>
 
-<!-- Hero Section -->
+<!-- Hero Section (light) -->
 <section class="hero">
     <div class="container">
         <div class="hero-grid">
@@ -491,8 +538,7 @@
                 <h1>About <br> Us</h1>
                 <p style="font-size: 1.2rem; color: #334155; max-width: 90%; margin-bottom: 2rem;">
                    For over 35 years, we have been at the forefront of delivering precision piping solutions, empowering industries with high-purity copper systems and secure, world-class infrastructure.
-
-Our legacy is built on a commitment to engineering excellence, safety, and long-term performance. We specialize in designing and installing leak-proof, high-performance copper gas piping systems that meet the most demanding industrial standards.
+                   Our legacy is built on a commitment to engineering excellence, safety, and long-term performance. We specialize in designing and installing leak-proof, high-performance copper gas piping systems that meet the most demanding industrial standards.
                 </p>
                 <a href="#" class="btn btn-primary" style="pointer-events: none;">Explore our story <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -514,17 +560,11 @@ Our legacy is built on a commitment to engineering excellence, safety, and long-
     </div>
 </section>
 
-<!-- Mission & Vision -->
+<!-- Mission & Vision (light) -->
 <div class="container">
     <div class="section-title">
         <h2>Our Commitment</h2>
-        <div class="subhead">At the core of our work lies a simple promise:
-to deliver systems that are safe, reliable, and built to last.
-
-Uncompromising Quality – We use only industrial-grade materials.
-Safety First – Every solution is engineered with strict safety standards.
-Long-Term Reliability – Systems tested for durability across years of operation.
-Seamless Execution – From planning to delivery, precision at every step.</div>
+        <div class="subhead">At the core of our work lies a simple promise: to deliver systems that are safe, reliable, and built to last. Uncompromising Quality – We use only industrial-grade materials. Safety First – Every solution is engineered with strict safety standards. Long-Term Reliability – Systems tested for durability across years of operation. Seamless Execution – From planning to delivery, precision at every step.</div>
     </div>
     <div class="cards-grid">
         <div class="mvv-card">
@@ -540,37 +580,19 @@ Seamless Execution – From planning to delivery, precision at every step.</div>
         <div class="mvv-card">
             <div class="card-icon"><i class="fas fa-gem"></i></div>
             <h3>Values</h3>
-            <p>Integrity – Transparent processes and honest commitments
-Precision – Excellence in every weld, joint, and installation
-Safety – Zero-compromise approach to system reliability
-Innovation – Continuously improving with modern technologies
-Client Trust – Building long-term partnerships through performance</p>
+            <p>Integrity – Transparent processes and honest commitments<br>Precision – Excellence in every weld, joint, and installation<br>Safety – Zero-compromise approach to system reliability<br>Innovation – Continuously improving with modern technologies<br>Client Trust – Building long-term partnerships through performance</p>
         </div>
     </div>
 </div>
 
-<!-- Story Section -->
+<!-- Story Section (light) -->
 <section>
     <div class="container">
         <div class="story-wrap">
             <div class="story-text">
                 <div class="badge"><i class="fas fa-history"></i> Our journey</div>
                 <h2>Our Growth & Reach</h2>
-                <p>Growth
-+340% YoY
-Consistent expansion driven by quality and trust.
-
-Global Reach
-18+ Countries
-Serving clients across international markets.
-
-Innovation
-50+ Prototypes
-Developing advanced solutions for evolving industry needs.
-
-Client Satisfaction
-98% Retention Rate
-Long-term partnerships built on reliability and results.</p>
+                <p>Growth +340% YoY – Consistent expansion driven by quality and trust.<br>Global Reach 18+ Countries – Serving clients across international markets.<br>Innovation 50+ Prototypes – Developing advanced solutions for evolving industry needs.<br>Client Satisfaction 98% Retention Rate – Long-term partnerships built on reliability and results.</p>
                 <a href="#" style="color: #4f46e5; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Read full manifesto <i class="fas fa-long-arrow-alt-right"></i></a>
             </div>
             <div class="story-visual">
@@ -585,33 +607,31 @@ Long-term partnerships built on reliability and results.</p>
     </div>
 </section>
 
-<!-- INFINITE MOTION TEAM TICKER (RESPONSIVE & CONTINUOUS) -->
-<div class="team-ticker-section">
+<!-- ======================================================= -->
+<!-- DARK THEME TEAM SECTION – FULLY OPAQUE, NO TRANSPARENCY -->
+<!-- ======================================================= -->
+<div class="dark-team-section">
     <div class="container">
-        <div class="team-header">
-            <h2>Creative minds behind the magic</h2>
-            <div class="subhead">Our strength lies in our people — a team of engineers, designers, and technical experts who bring precision and passion to every project.
-
-With deep industry knowledge and hands-on experience, our team ensures that every solution is efficient, safe, and future-ready. </div>
+        <div class="team-header-dark">
+            <h2>Meet Our Team</h2>
+            <div class="section-sub-dark">The people behind the product — engineers, creators, and visionaries driving precision.</div>
         </div>
     </div>
 
-    <div class="ticker-wrapper">
-        <div class="ticker-strip" id="tickerStrip"></div>
+    <div class="ticker-outer">
+        <div id="darkTickerStrip"></div>
     </div>
     <div class="ticker-hint">
-        <i class="fas fa-infinity"></i> Endless motion — like news ticker · Hover to pause
+        <i class="fas fa-infinity"></i> Endless motion — hover to pause
     </div>
 </div>
 
-<!-- CTA Section -->
+<!-- CTA Section (light wrapper, dark inside) -->
 <section class="section-sm">
     <div class="container">
         <div class="cta-section">
             <h3>Let’s create something extraordinary</h3>
-            <p>With over 35 years of expertise in precision copper piping systems, we’re ready to power your next project with reliability, safety, and unmatched engineering excellence.
-
-From concept to completion, we deliver solutions that are built to perform and designed to last.</p>
+            <p>With over 35 years of expertise in precision copper piping systems, we’re ready to power your next project with reliability, safety, and unmatched engineering excellence. From concept to completion, we deliver solutions that are built to perform and designed to last.</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
                 <a href="#" class="btn btn-primary" style="pointer-events: none;">Start a project <i class="fas fa-rocket"></i></a>
                 <a href="#" class="btn btn-outline-light" style="pointer-events: none;">Contact us <i class="fas fa-comment"></i></a>
@@ -623,10 +643,7 @@ From concept to completion, we deliver solutions that are built to perform and d
 <!-- Footer -->
 <footer>
     <div class="container">
-        <div style="margin-bottom: 32px;">
-            <span style="font-weight: 700; font-size: 1.6rem; background: linear-gradient(135deg,#1e1f2c, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent;">LUMINA</span>
-            <p style="margin-top: 1rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        <div style="margin-bottom: 32px;"></div>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-bottom: 32px;">
             <a href="#" style="color: #5b6e8c; text-decoration: none;">Privacy</a>
             <a href="#" style="color: #5b6e8c; text-decoration: none;">Terms</a>
@@ -637,128 +654,132 @@ From concept to completion, we deliver solutions that are built to perform and d
             <i class="fab fa-linkedin-in"></i>
             <i class="fab fa-instagram"></i>
         </div>
-        <p style="font-size: 0.85rem;">&copy; 2025 Lumina Studio — endless motion team showcase</p>
     </div>
 </footer>
 
 <script>
-    (function() {
-        // Team members data (as requested with exact lorem content)
-        const teamMembers = [
-            {
-                name: "Moorthy M",
-                role: "CEO & Founder",
-                bio: "Founder and CEO with a passion for innovation.",
-                icon: "fa-user-owner"
-            },
-            {
-                name: "Ashwin M",
-                role: "Co Founder",
-                bio: "Co-founder and CTO with a passion for innovation.",
-                icon: "fa-user-owner"
-            },
-            {
-                name: "Prathish Deivendiran",
-                role: "Free Lancer",
-                bio: "Web developer with a passion for creating engaging user experiences.",
-                icon: "fa-user-developer"
-            },
-            {
-                name: "Naveen M",
-                role: "UI/UX Designer and App Developer",
-                bio: "UI/UX designer and app developer with a passion for creating intuitive and visually appealing interfaces.",
-                icon: "fa-user-designer"
-            }
-        ];
-
-        // Function to create a team card HTML
-        function createTeamCard(member) {
-            return `
-                <div class="ticker-card">
-                    <div class="avatar-ticker">
-                        <i class="fas ${member.icon}"></i>
-                    </div>
-                    <h4>${escapeHtml(member.name)}</h4>
-                    <div class="team-role">${escapeHtml(member.role)}</div>
-                    <div class="team-bio">${escapeHtml(member.bio)}</div>
-                </div>
-            `;
+(function() {
+    // Team data for dark section (same as original, full links & avatars)
+    const teamMembersDark = [
+        {
+            name: "Moorthy M",
+            role: "CEO & Founder",
+            bio: "Founder and CEO with a passion for innovation.",
+            image: "",
+            links: [
+                { type: "linkedin", url: "https://linkedin.com/in/moorthy" },
+                { type: "email",    url: "mailto:moorthy@example.com" }
+            ]
+        },
+        {
+            name: "Ashwin M",
+            role: "Co Founder",
+            bio: "Co-founder and CTO with a passion for innovation.",
+            image: "",
+            links: [
+                { type: "linkedin",  url: "https://linkedin.com/in/ashwin" },
+                { type: "github",    url: "https://github.com/ashwin" }
+            ]
+        },
+        {
+            name: "Prathish Deivendiran",
+            role: "Freelancer & Web Developer",
+            bio: "Web developer creating engaging user experiences.",
+            image: "https://jswtv.tv/wp-content/uploads/2024/03/Simbu-to-be-a-part-of-Kamal-Haasans-Thug-Life.jpg",
+            links: [
+                { type: "portfolio", url: "https://prathish.dev" },
+                { type: "github",    url: "https://github.com/prathish" }
+            ]
+        },
+        {
+            name: "Naveen M",
+            role: "UI/UX Designer & App Developer",
+            bio: "Crafts intuitive and visually appealing interfaces.",
+            image: "",
+            links: [
+                { type: "linkedin",  url: "https://linkedin.com/in/naveen" },
+                { type: "twitter",   url: "https://twitter.com/naveen" }
+            ]
         }
+    ];
 
-        // Simple escape to prevent any injection (just good practice)
-        function escapeHtml(str) {
-            return str.replace(/[&<>]/g, function(m) {
-                if (m === '&') return '&amp;';
-                if (m === '<') return '&lt;';
-                if (m === '>') return '&gt;';
-                return m;
-            }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-                return c;
-            });
+    const icons = {
+        linkedin:  `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+        github:    `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`,
+        twitter:   `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>`,
+        portfolio: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+        email:     `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`
+    };
+    const labels = { linkedin:'LinkedIn', github:'GitHub', twitter:'Twitter', portfolio:'Portfolio', email:'Email' };
+
+    function escapeHtml(str) {
+        return String(str).replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function buildLinks(links) {
+        if (!links || links.length === 0) return '';
+        const items = links.map(l => {
+            const icon = icons[l.type] || '';
+            const label = labels[l.type] || l.type;
+            return `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${icon} ${label}</a>`;
+        }).join('');
+        return `<div class="team-links">${items}</div>`;
+    }
+
+    function createCard(member) {
+        const avatarContent = member.image
+            ? `<img src="${escapeHtml(member.image)}" alt="${escapeHtml(member.name)}">`
+            : `<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
+        return `
+            <div class="ticker-card">
+                <div class="avatar">${avatarContent}</div>
+                <h4>${escapeHtml(member.name)}</h4>
+                <div class="team-role">${escapeHtml(member.role)}</div>
+                <div class="team-bio">${escapeHtml(member.bio)}</div>
+                ${buildLinks(member.links)}
+            </div>`;
+    }
+
+    const container = document.getElementById('darkTickerStrip');
+    if (container) {
+        let html = '';
+        // Duplicate for seamless infinite loop
+        for (let i = 0; i < 2; i++) {
+            teamMembersDark.forEach(m => html += createCard(m));
         }
-
-        const tickerStrip = document.getElementById('tickerStrip');
-        if (tickerStrip) {
-            // Build the full set of cards HTML
-            let allCardsHTML = '';
-            teamMembers.forEach(member => {
-                allCardsHTML += createTeamCard(member);
-            });
-            
-            // For seamless infinite scroll, we duplicate the content twice
-            // Using 2 copies ensures that when animation moves by 50%, the second copy perfectly aligns
-            let finalHTML = allCardsHTML + allCardsHTML;  // exactly two copies
-            tickerStrip.innerHTML = finalHTML;
-            
-            // Function to set animation duration based on content width for consistent speed across devices
-            // This ensures the ticker moves at a pleasant speed (around 80-100 pixels per second)
-            // and is fully responsive. We'll also recalc on resize.
-            function setAnimationSpeed() {
-                if (!tickerStrip) return;
-                // Get the total width of one copy of the content (the original set width)
-                // Since we have two copies, total width = scrollWidth / 2? Actually scrollWidth is full width of both copies.
-                const totalWidth = tickerStrip.scrollWidth;
-                if (totalWidth === 0) return;
-                // Width of one set is totalWidth / 2
-                const singleSetWidth = totalWidth / 2;
-                // Desired speed: move at ~100px per second (smooth but not too fast)
-                // For mobile, slightly slower? but let's keep constant ~90px/sec for readability.
-                const pixelsPerSecond = 90;
-                // Duration (seconds) = distance to move (singleSetWidth) / pixelsPerSecond
-                let duration = singleSetWidth / pixelsPerSecond;
-                // Clamp duration between 12 and 40 seconds for best UX
-                duration = Math.min(40, Math.max(12, duration));
-                // Apply animation with calculated duration
-                tickerStrip.style.animation = `scrollTicker ${duration}s linear infinite`;
-            }
-            
-            // Initial set
-            setAnimationSpeed();
-            
-            // On window resize, recalc speed for consistent motion (makes responsive perfect)
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    setAnimationSpeed();
-                }, 150);
-            });
-            
-            // Also observe if any font loading or images cause layout shift (optional but safe)
-            if (window.ResizeObserver) {
-                const observer = new ResizeObserver(() => {
-                    setAnimationSpeed();
-                });
-                observer.observe(tickerStrip);
-            }
-            
-            // Respect reduced motion preference
-            const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-            if (mediaQuery.matches) {
-                tickerStrip.style.animation = 'none';
+        container.innerHTML = html;
+        // Dynamic speed based on content width
+        const singleSetWidth = container.scrollWidth / 2;
+        if (singleSetWidth) {
+            let duration = Math.min(38, Math.max(14, singleSetWidth / 88));
+            container.style.animation = `scrollTickerDark ${duration}s linear infinite`;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                container.style.animation = 'none';
             }
         }
-    })();
+    }
+
+    // Resize handler for smooth speed adjustment
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            const strip = document.getElementById('darkTickerStrip');
+            if (strip && strip.scrollWidth) {
+                const singleWidth = strip.scrollWidth / 2;
+                if (singleWidth) {
+                    let dur = Math.min(38, Math.max(14, singleWidth / 88));
+                    strip.style.animation = `scrollTickerDark ${dur}s linear infinite`;
+                }
+            }
+        }, 150);
+    });
+})();
 </script>
 </body>
 </html>
