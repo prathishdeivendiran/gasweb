@@ -11,7 +11,7 @@
         :root {
             --navy: #0a192f;
             --steel: #4a5568;
-            --accent: #dc2626;
+            --accent: #f97316;
             --dark-bg: #0f172a;
             --industrial: #1e293b;
         }
@@ -108,7 +108,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(30, 41, 59, 0.95), transparent);
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9), transparent);
             padding: 1.25rem;
             color: white;
             transform: translateY(100%);
@@ -145,7 +145,7 @@
             }
             .collage-overlay {
                 transform: translateY(0);
-                background: linear-gradient(to top, rgba(30, 41, 59, 0.9), transparent);
+                background: linear-gradient(to top, rgba(10, 25, 47, 0.85), transparent);
             }
         }
 
@@ -192,7 +192,7 @@
         }
 
         .checklist-item:hover {
-            background: rgba(220, 38, 38, 0.08);
+            background: rgba(249, 115, 22, 0.08);
             transform: translateX(5px);
         }
 
@@ -219,7 +219,7 @@
             bottom: 2rem;
             right: 2rem;
             z-index: 99;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background: linear-gradient(135deg, #f97316, #ea580c);
             color: white;
             padding: 1rem 1.8rem;
             border-radius: 60px;
@@ -227,14 +227,14 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
             transition: all 0.3s ease;
             text-decoration: none;
         }
 
         .floating-cta:hover {
             transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.5);
+            box-shadow: 0 15px 35px rgba(249, 115, 22, 0.5);
         }
 
         @media (max-width: 768px) {
@@ -248,16 +248,16 @@
 
         /* Infrastructure specific styles */
         .infra-gradient {
-            background: linear-gradient(135deg, #0a192f 0%, #1e293b 50%, #334155 100%);
+            background: linear-gradient(135deg, #0a192f 0%, #0f2a3f 50%, #0a192f 100%);
         }
-        
+
         .sector-card {
             transition: all 0.3s ease;
         }
-        
+
         .sector-card:hover {
             transform: translateY(-5px);
-            border-left-color: #dc2626 !important;
+            border-left-color: #f97316 !important;
         }
     </style>
 </head>
@@ -278,75 +278,75 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-[85vh] flex items-center infra-gradient text-white overflow-hidden">
-        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-red-600/20 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-gray-600/10 blur-[120px] rounded-full"></div>
-        
+        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-orange-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-amber-600/10 blur-[120px] rounded-full"></div>
+
         <div class="container mx-auto px-6 relative z-10 text-center lg:text-left grid lg:grid-cols-2 gap-12 items-center">
             <div class="reveal">
-                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-red-600 to-gray-700 rounded-full">
+                <span class="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-gradient-to-r from-orange-600 to-amber-500 rounded-full">
                     <i class="fas fa-hard-hat mr-2"></i> Infrastructure Grade
                 </span>
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1]">
-                    MS Pipeline <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-gray-400">Infrastructure Solutions</span>
+                    MS Pipeline <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500">Infrastructure Solutions</span>
                 </h1>
                 <p class="text-xl text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
                     Heavy-duty Mild Steel pipeline systems for industrial complexes, water treatment plants, oil & gas, and large-scale infrastructure projects across India.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                    <a href="#" id="heroQuoteBtn" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-[0_20px_40px_rgba(220,38,38,0.3)] hover:-translate-y-1">
+                    <a href="#" id="heroQuoteBtn" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-[0_20px_40px_rgba(249,115,22,0.3)] hover:-translate-y-1">
                         <i class="fas fa-hard-hat"></i> Request Project Consultation
                     </a>
-                    <a href="#trustSection" class="inline-flex items-center gap-2 border-2 border-white/30 hover:border-red-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                    <a href="#trustSection" class="inline-flex items-center gap-2 border-2 border-white/30 hover:border-orange-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
                         <i class="fas fa-building"></i> Infrastructure Projects
                     </a>
                 </div>
             </div>
             <div class="hidden lg:block reveal" style="transition-delay: 0.2s">
-                <div class="relative p-3 border border-white/15 rounded-[3rem] overflow-hidden bg-gradient-to-br from-red-500/10 to-transparent">
+                <div class="relative p-3 border border-white/15 rounded-[3rem] overflow-hidden bg-gradient-to-br from-orange-500/10 to-transparent">
                     <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800" class="rounded-[2.5rem] w-full" alt="MS Pipeline Infrastructure">
                 </div>
             </div>
         </div>
-        
+
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
             <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
         </div>
     </section>
 
-    <!-- Trust & Safety Section (Builds Credibility) -->
+    <!-- Trust & Safety Section -->
     <section id="trustSection" class="py-20 px-6 bg-gray-50">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-12 reveal">
-                <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-red-100 text-red-700 rounded-full">Infrastructure Experts</span>
-                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">MS Pipeline Solutions for <span class="text-red-600">Every Infrastructure Need</span></h2>
+                <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-orange-100 text-orange-700 rounded-full">Infrastructure Experts</span>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">MS Pipeline Solutions for <span class="text-orange-600">Every Infrastructure Need</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">From municipal water supply to industrial complexes, we deliver robust, long-lasting mild steel pipeline systems.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-trophy text-3xl text-red-600"></i>
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-3xl text-orange-600"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-2">ISO 9001:2015</h3>
                     <p class="text-gray-600 text-sm">Certified quality management systems</p>
                 </div>
                 <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-industry text-3xl text-red-600"></i>
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-industry text-3xl text-orange-600"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-2">Class 1 Welding</h3>
                     <p class="text-gray-600 text-sm">Certified welders & radiographic testing</p>
                 </div>
                 <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-chart-line text-3xl text-red-600"></i>
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-3xl text-orange-600"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-2">25+ Years</h3>
                     <p class="text-gray-600 text-sm">Infrastructure project experience</p>
                 </div>
                 <div class="trust-badge bg-white p-6 rounded-2xl shadow-lg text-center reveal">
-                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-globe-asia text-3xl text-red-600"></i>
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe-asia text-3xl text-orange-600"></i>
                     </div>
                     <h3 class="font-bold text-xl mb-2">PAN India Presence</h3>
                     <p class="text-gray-600 text-sm">Projects across all major states</p>
@@ -361,29 +361,29 @@
                         <p class="text-gray-300 mb-6">Our mild steel pipelines meet rigorous industrial standards:</p>
                         <div class="space-y-3">
                             <div class="checklist-item">
-                                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
                                 <span>Grade: IS 3589 / IS 1239 / API 5L compliant</span>
                             </div>
                             <div class="checklist-item">
-                                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
                                 <span>Diameter range: 15mm NB to 1200mm NB</span>
                             </div>
                             <div class="checklist-item">
-                                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
                                 <span>Epoxy coating / 3LPE / Galvanized finishing</span>
                             </div>
                             <div class="checklist-item">
-                                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
                                 <span>Hydrostatic testing up to 25 bar</span>
                             </div>
                             <div class="checklist-item">
-                                <i class="fas fa-check-circle text-red-400 text-xl"></i>
+                                <i class="fas fa-check-circle text-orange-500 text-xl"></i>
                                 <span>NDT: Ultrasonic & Radiographic inspection</span>
                             </div>
                         </div>
                     </div>
                     <div class="bg-white/10 rounded-2xl p-6 text-center">
-                        <div class="text-6xl font-black text-red-400 mb-2">500+ KM</div>
+                        <div class="text-6xl font-black text-orange-500 mb-2">500+ KM</div>
                         <p class="text-gray-300 mb-4">Pipeline Installed Nationwide</p>
                         <div class="flex justify-center gap-8 mt-4">
                             <div>
@@ -405,27 +405,27 @@
     <section class="py-20 px-6 bg-white">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Infrastructure <span class="text-red-600">Sectors We Serve</span></h2>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Infrastructure <span class="text-orange-600">Sectors We Serve</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive MS pipeline solutions for diverse infrastructure applications.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-red-600 shadow-md">
-                    <i class="fas fa-tint text-3xl text-red-600 mb-3"></i>
+                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-orange-500 shadow-md">
+                    <i class="fas fa-tint text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-xl mb-2">Water Supply</h3>
                     <p class="text-gray-600 text-sm">Municipal water distribution, irrigation canals, and raw water transmission.</p>
                 </div>
-                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-red-600 shadow-md">
-                    <i class="fas fa-oil-can text-3xl text-red-600 mb-3"></i>
+                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-orange-500 shadow-md">
+                    <i class="fas fa-oil-can text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-xl mb-2">Oil & Gas</h3>
                     <p class="text-gray-600 text-sm">Crude oil, natural gas, and petroleum product transmission lines.</p>
                 </div>
-                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-red-600 shadow-md">
-                    <i class="fas fa-industry text-3xl text-red-600 mb-3"></i>
+                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-orange-500 shadow-md">
+                    <i class="fas fa-industry text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-xl mb-2">Industrial Plants</h3>
                     <p class="text-gray-600 text-sm">Process piping, cooling water, and steam distribution systems.</p>
                 </div>
-                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-red-600 shadow-md">
-                    <i class="fas fa-building text-3xl text-red-600 mb-3"></i>
+                <div class="sector-card bg-gray-50 p-6 rounded-2xl border-l-4 border-orange-500 shadow-md">
+                    <i class="fas fa-building text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-xl mb-2">Commercial Complexes</h3>
                     <p class="text-gray-600 text-sm">HVAC, firefighting, and plumbing risers for high-rise buildings.</p>
                 </div>
@@ -437,7 +437,7 @@
     <section class="py-20 px-6 bg-gray-50">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">MS Pipeline <span class="text-red-600">Project Gallery</span></h2>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">MS Pipeline <span class="text-orange-600">Project Gallery</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Major infrastructure projects completed across India.</p>
             </div>
 
@@ -448,96 +448,96 @@
                     <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000" alt="Large diameter MS pipeline installation">
                     <div class="collage-overlay">
                         <p class="font-semibold">🏭 Large Diameter MS Pipeline</p>
-                        <p class="text-sm text-red-300">Municipal water supply project</p>
+                        <p class="text-sm text-orange-300">Municipal water supply project</p>
                     </div>
                 </div>
-                
+
                 <!-- Image 2 -->
                 <div class="collage-item">
                     <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800" alt="Pipeline welding">
                     <div class="collage-overlay">
                         <p class="font-semibold">🔧 Precision Welding</p>
-                        <p class="text-sm text-red-300">Class 1 certified welders</p>
+                        <p class="text-sm text-orange-300">Class 1 certified welders</p>
                     </div>
                 </div>
-                
+
                 <!-- Image 3 -->
                 <div class="collage-item">
                     <img src="https://i.pinimg.com/736x/6d/b1/d2/6db1d2ac06297d64963684d1301a172e.jpg" alt="Pipeline coating">
                     <div class="collage-overlay">
                         <p class="font-semibold">🛡️ Anti-Corrosion Coating</p>
-                        <p class="text-sm text-red-300">3LPE & epoxy finishing</p>
+                        <p class="text-sm text-orange-300">3LPE & epoxy finishing</p>
                     </div>
                 </div>
-                
+
                 <!-- Image 4 -->
                 <div class="collage-item">
                     <img src="https://images.unsplash.com/photo-1581092335871-4b1c2e9a5e4a?auto=format&fit=crop&w=800" alt="Industrial pipeline network">
                     <div class="collage-overlay">
                         <p class="font-semibold">🏗️ Industrial Complex Network</p>
-                        <p class="text-sm text-red-300">Complete piping infrastructure</p>
+                        <p class="text-sm text-orange-300">Complete piping infrastructure</p>
                     </div>
                 </div>
-                
+
                 <!-- Image 5 -->
                 <div class="collage-item">
                     <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800" alt="Pipeline laying at construction site">
                     <div class="collage-overlay">
                         <p class="font-semibold">🚧 Pipeline Laying</p>
-                        <p class="text-sm text-red-300">Large-scale infrastructure</p>
+                        <p class="text-sm text-orange-300">Large-scale infrastructure</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why MS for Infrastructure? - Educational Section -->
-    <section class="py-20 px-6 bg-white">
+    <!-- Why MS for Infrastructure? -->
+    <section class="py-20 px-6 bg-gradient-to-r from-orange-50 to-amber-50">
         <div class="container mx-auto max-w-7xl">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div class="reveal">
-                    <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-red-100 text-red-700 rounded-full">Why Mild Steel?</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-6">Why Infrastructure Projects <span class="text-red-600">Choose MS Pipeline</span></h2>
+                    <span class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-wider uppercase bg-orange-200 text-orange-800 rounded-full">Why Mild Steel?</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-6">Why Infrastructure Projects <span class="text-orange-600">Choose MS Pipeline</span></h2>
                     <div class="space-y-4">
                         <div class="flex gap-3">
-                            <i class="fas fa-weight-hanging text-red-600 text-xl mt-1"></i>
+                            <i class="fas fa-weight-hanging text-orange-600 text-xl mt-1"></i>
                             <div><strong class="font-bold">High Strength-to-Weight Ratio</strong> — Exceptional structural integrity for high-pressure applications.</div>
                         </div>
                         <div class="flex gap-3">
-                            <i class="fas fa-coins text-red-600 text-xl mt-1"></i>
+                            <i class="fas fa-coins text-orange-600 text-xl mt-1"></i>
                             <div><strong class="font-bold">Cost-Effective</strong> — Lower material and installation costs compared to stainless steel.</div>
                         </div>
                         <div class="flex gap-3">
-                            <i class="fas fa-tools text-red-600 text-xl mt-1"></i>
+                            <i class="fas fa-tools text-orange-600 text-xl mt-1"></i>
                             <div><strong class="font-bold">Excellent Weldability</strong> — Easy field fabrication and modification.</div>
                         </div>
                         <div class="flex gap-3">
-                            <i class="fas fa-thermometer-half text-red-600 text-xl mt-1"></i>
+                            <i class="fas fa-thermometer-half text-orange-600 text-xl mt-1"></i>
                             <div><strong class="font-bold">Temperature Resistant</strong> — Performs reliably from -29°C to 425°C.</div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 rounded-3xl p-8 shadow-xl reveal">
+                <div class="bg-white rounded-3xl p-8 shadow-xl reveal">
                     <div class="flex items-center justify-between mb-6">
                         <h3 class="text-2xl font-bold">MS vs Other Materials</h3>
-                        <i class="fas fa-chart-simple text-3xl text-red-500"></i>
+                        <i class="fas fa-chart-simple text-3xl text-orange-500"></i>
                     </div>
                     <div class="space-y-4">
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                             <span class="font-semibold">Tensile Strength</span>
-                            <span><span class="text-red-600 font-bold">410-550 MPa</span> (MS) vs 200-300 MPa (others)</span>
+                            <span><span class="text-orange-600 font-bold">410-550 MPa</span> (MS) vs 200-300 MPa (others)</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                             <span class="font-semibold">Cost Efficiency</span>
-                            <span><span class="text-red-600 font-bold">30-40% lower</span> than stainless steel</span>
+                            <span><span class="text-orange-600 font-bold">30-40% lower</span> than stainless steel</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                             <span class="font-semibold">Durability</span>
-                            <span><span class="text-red-600 font-bold">50+ years</span> with proper coating</span>
+                            <span><span class="text-orange-600 font-bold">50+ years</span> with proper coating</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-white rounded-xl">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
                             <span class="font-semibold">Installation Speed</span>
-                            <span><span class="text-red-600 font-bold">Fast</span> welding & jointing</span>
+                            <span><span class="text-orange-600 font-bold">Fast</span> welding & jointing</span>
                         </div>
                     </div>
                 </div>
@@ -549,27 +549,27 @@
     <section class="py-20 px-6 bg-gray-50">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Key <span class="text-red-600">Infrastructure Projects</span></h2>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Key <span class="text-orange-600">Infrastructure Projects</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Proud to have delivered for India's largest infrastructure initiatives.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 reveal">
                 <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <i class="fas fa-water text-3xl text-red-600 mb-3"></i>
+                    <i class="fas fa-water text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-lg">Chennai Metro Water</h3>
                     <p class="text-gray-500 text-sm">45 KM MS pipeline for water supply</p>
-                    <p class="text-xs text-red-600 mt-2">Completed 2023</p>
+                    <p class="text-xs text-orange-600 mt-2">Completed 2023</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <i class="fas fa-industry text-3xl text-red-600 mb-3"></i>
+                    <i class="fas fa-industry text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-lg">Gujarat Industrial Corridor</h3>
                     <p class="text-gray-500 text-sm">120 KM process piping network</p>
-                    <p class="text-xs text-red-600 mt-2">Completed 2024</p>
+                    <p class="text-xs text-orange-600 mt-2">Completed 2024</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-md text-center">
-                    <i class="fas fa-fire text-3xl text-red-600 mb-3"></i>
+                    <i class="fas fa-fire text-3xl text-orange-500 mb-3"></i>
                     <h3 class="font-bold text-lg">HPCL Refinery Expansion</h3>
                     <p class="text-gray-500 text-sm">High-pressure MS pipeline system</p>
-                    <p class="text-xs text-red-600 mt-2">Ongoing</p>
+                    <p class="text-xs text-orange-600 mt-2">Ongoing</p>
                 </div>
             </div>
         </div>
@@ -579,12 +579,12 @@
     <section class="py-20 px-6 bg-white">
         <div class="container mx-auto max-w-7xl">
             <div class="text-center mb-12 reveal">
-                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Trusted by <span class="text-red-600">Industry Leaders</span></h2>
+                <h2 class="text-3xl md:text-4xl font-black text-[#0a192f] mb-4">Trusted by <span class="text-orange-600">Industry Leaders</span></h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Feedback from our infrastructure project partners.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-gray-50 p-6 rounded-2xl reveal shadow-md">
-                    <div class="flex text-red-500 mb-3">
+                    <div class="flex text-orange-500 mb-3">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-700 italic mb-4">"The MS pipeline installation for our water treatment plant was completed ahead of schedule. Quality of welding and coating was exceptional."</p>
@@ -592,7 +592,7 @@
                     <div class="text-sm text-gray-500">Chennai Metro Water</div>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-2xl reveal shadow-md">
-                    <div class="flex text-red-500 mb-3">
+                    <div class="flex text-orange-500 mb-3">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-700 italic mb-4">"Their technical team provided excellent support during the installation phase. The hydrostatic testing results were perfect."</p>
@@ -600,7 +600,7 @@
                     <div class="text-sm text-gray-500">HPCL Refinery</div>
                 </div>
                 <div class="bg-gray-50 p-6 rounded-2xl reveal shadow-md">
-                    <div class="flex text-red-500 mb-3">
+                    <div class="flex text-orange-500 mb-3">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-gray-700 italic mb-4">"Highly professional team with deep infrastructure expertise. The 3LPE coating quality was outstanding for our coastal project."</p>
@@ -612,16 +612,16 @@
     </section>
 
     <!-- Final CTA Section -->
-    <section class="py-20 px-6 bg-gradient-to-r from-[#0a192f] to-[#1e293b] text-white">
+    <section class="py-20 px-6 bg-[#0a192f] text-white">
         <div class="container mx-auto max-w-4xl text-center reveal">
-            <i class="fas fa-building text-5xl text-red-400 mb-6"></i>
+            <i class="fas fa-building text-5xl text-orange-400 mb-6"></i>
             <h2 class="text-3xl md:text-4xl font-black mb-4">Planning an Infrastructure Project?</h2>
             <p class="text-xl text-gray-300 mb-8">Get a free consultation and project estimate from our MS pipeline specialists.</p>
             <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#" id="ctaQuoteBtn" class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg">
+                <a href="#" id="ctaQuoteBtn" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg">
                     <i class="fas fa-phone-alt"></i> Call: +91 63827 84034
                 </a>
-                <a href="#" id="ctaWhatsappBtn" class="inline-flex items-center gap-2 border-2 border-red-500 hover:bg-red-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
+                <a href="#" id="ctaWhatsappBtn" class="inline-flex items-center gap-2 border-2 border-orange-500 hover:bg-orange-500 text-white font-semibold py-4 px-8 rounded-2xl transition-all">
                     <i class="fab fa-whatsapp"></i> WhatsApp Inquiry
                 </a>
             </div>
@@ -630,7 +630,7 @@
     </section>
 
     <footer class="bg-gray-900 py-8 px-6 text-center text-gray-400 text-sm">
-        <p><p>© 2026 MOORTHY Service & Enterprises — Precision Copper & MS Pipeline Installation |24/7 Support | 35+ Years of Excellence</p></p>
+        <p>© 2026 MOORTHY Service & Enterprises — Precision Copper & MS Pipeline Installation | 24/7 Support | 35+ Years of Excellence</p>
         <p class="mt-2">ISO 9001:2015 Certified | Class 1 Welding | PAN India Project Execution</p>
     </footer>
 
@@ -647,9 +647,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Quote Button Handlers
-       
-        
         document.getElementById('ctaWhatsappBtn')?.addEventListener('click', (e) => {
             e.preventDefault();
             window.open('https://wa.me/916382784034?text=Hello%2C%20I%20need%20a%20quote%20for%20MS%20pipeline%20infrastructure%20project', '_blank');

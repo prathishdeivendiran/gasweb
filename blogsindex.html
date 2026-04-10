@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Blogosphere | Modern Blog Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #faf9fc;
+            color: #1e1e2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* gradient accent header */
+        .header {
+            background: linear-gradient(135deg, #0b1120 0%, #19233c 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* Home Button */
+        .home-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            z-index: 100;
+        }
+
+        .home-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #e9f0ff, #b9d0ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin-top: 0.8rem;
+            opacity: 0.85;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* blog grid - responsive cards */
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* modern card styling */
+        .blog-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(0px);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(99, 102, 241, 0.15);
+        }
+
+        /* card thumbnail with actual blog images */
+        .card-thumb {
+            height: 200px;
+            background: linear-gradient(145deg, #eef2ff, #e0e7ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #edeff5;
+            overflow: hidden;
+        }
+
+        .card-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .card-thumb-img {
+            transform: scale(1.05);
+        }
+
+        .thumb-icon {
+            font-size: 3.5rem;
+            background: white;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            color: #2d3a6e;
+        }
+
+        .card-content {
+            padding: 1.6rem 1.5rem 1.8rem;
+            flex: 1;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .blog-excerpt {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #6c6f8b;
+            border-top: 1px solid #f0f2f8;
+            padding-top: 1rem;
+        }
+
+        .read-link {
+            font-weight: 600;
+            color: #4f46e5;
+            background: #eef2ff;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-link:hover {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .status-badge {
+            font-size: 0.7rem;
+            background: #e9ecef;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* loader & empty state */
+        .loader-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #4f46e5;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-message {
+            text-align: center;
+            background: #f8fafc;
+            border-radius: 2rem;
+            padding: 3rem;
+            color: #334155;
+            border: 1px dashed #cbd5e1;
+        }
+
+        /* footer */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: #5b6e8c;
+            border-top: 1px solid #e9edf2;
+            font-size: 0.85rem;
+        }
+
+        /* responsive */
+        @media (max-width: 680px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .blogs-grid {
+                gap: 1.2rem;
+            }
+            .home-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+            .header {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* inline error toast style */
+        .error-toast {
+            background: #fee2e2;
+            border-left: 5px solid #dc2626;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="home-button">
+         Back to Home
+    </a>
+    <h1>✨ Infinite Chronicles</h1>
+    <p>Discover stories — automatically synced from our blog library</p>
+    <div style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">⚡ Live fetching blogs from <code style="background:#1e2a3e; padding:0.2rem 0.5rem; border-radius:20px;">/blogs/</code> folder</div>
+</header>
+
+<main class="container">
+    <div id="blogGridContainer">
+        <!-- loading indicator injected dynamically -->
+        <div class="loader-wrapper" id="initialLoader">
+            <div class="spinner"></div>
+            <p>Scanning blog posts from the archive ...</p>
+        </div>
+    </div>
+</main>
+
+
+
+<script>
+    /**
+     * BLOG DISCOVERY ENGINE with IMAGE EXTRACTION:
+     * - Automatically detects blog1.html, blog2.html, blog3.html ... inside "/blogs/" directory
+     * - Extracts first image from each blog post
+     * - Fetches each blog file, extracts metadata (title, preview snippet, image)
+     * - Renders cards with actual blog images
+     * - Includes Home button for navigation
+     */
+    
+    (function() {
+        // Configuration
+        const BLOG_FOLDER_PATH = 'blogs/';        // relative path where blog html files live
+        const BLOG_PREFIX = 'blog';               // base name: blog1.html, blog2.html ...
+        const MAX_BLOG_ATTEMPTS = 50;              // safety: scan up to 50 blogs
+        
+        // DOM elements
+        const container = document.getElementById('blogGridContainer');
+        
+        // Helper: robust fetch with timeout & cache busting for dynamic extraction
+        async function fetchBlogHTML(blogUrl) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 sec timeout
+                const response = await fetch(blogUrl, { 
+                    signal: controller.signal,
+                    headers: { 'Cache-Control': 'no-cache, pragma: no-cache' }
+                });
+                clearTimeout(timeoutId);
+                if (!response.ok) {
+                    if (response.status === 404) return null;
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const htmlText = await response.text();
+                return htmlText;
+            } catch (err) {
+                if (err.name === 'AbortError') {
+                    console.warn(`Fetch timeout for ${blogUrl}`);
+                } else {
+                    console.warn(`Failed to fetch ${blogUrl}:`, err.message);
+                }
+                return null;
+            }
+        }
+        
+        // Extract first image from blog HTML
+        function extractFirstImage(htmlString, blogUrl) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            
+            // Look for images in the document
+            const images = doc.querySelectorAll('img');
+            
+            for (let img of images) {
+                let imgSrc = img.getAttribute('src');
+                if (imgSrc && !imgSrc.startsWith('data:')) {
+                    // Handle relative paths
+                    if (imgSrc.startsWith('./')) {
+                        imgSrc = imgSrc.substring(2);
+                    }
+                    if (!imgSrc.startsWith('http') && !imgSrc.startsWith('//')) {
+                        // Build absolute path relative to blog location
+                        const blogBasePath = BLOG_FOLDER_PATH;
+                        if (imgSrc.startsWith('../')) {
+                            // For images in root images folder
+                            imgSrc = imgSrc.replace('../', '');
+                        } else if (!imgSrc.startsWith('/')) {
+                            imgSrc = blogBasePath + imgSrc;
+                        }
+                    }
+                    return imgSrc;
+                }
+            }
+            return null;
+        }
+        
+        // Extract a data URL or SVG placeholder if no image found
+        function getImageForCard(htmlContent, blogUrl) {
+            const extractedImage = extractFirstImage(htmlContent, blogUrl);
+            if (extractedImage) {
+                return extractedImage;
+            }
+            // Return null to use default icon
+            return null;
+        }
+        
+        // Parse title from HTML string (robust)
+        function extractTitle(htmlString) {
+            const titleMatch = htmlString.match(/<title[^>]*>([^<]*)<\/title>/i);
+            if (titleMatch && titleMatch[1]) {
+                return titleMatch[1].trim();
+            }
+            const h1Match = htmlString.match(/<h1[^>]*>([^<]*)<\/h1>/i);
+            if (h1Match && h1Match[1]) return h1Match[1].trim();
+            return "Untitled Story";
+        }
+        
+        // Extract a meaningful excerpt: first paragraph text (clean html tags)
+        function extractExcerpt(htmlString, maxLength = 130) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            const body = doc.body;
+            if (!body) return "Dive into this thoughtful blog post.";
+            
+            const paragraphs = body.querySelectorAll('p');
+            let excerptText = "";
+            for (let p of paragraphs) {
+                const text = p.innerText.trim();
+                if (text.length > 20) {
+                    excerptText = text;
+                    break;
+                }
+            }
+            if (!excerptText) {
+                const articleDiv = body.querySelector('article, .content, main');
+                if (articleDiv) {
+                    const firstTextNode = articleDiv.innerText.trim();
+                    if (firstTextNode) excerptText = firstTextNode;
+                } else {
+                    excerptText = body.innerText.trim().slice(0, 200);
+                }
+            }
+            if (!excerptText) return "A compelling read awaits you.";
+            
+            excerptText = excerptText.replace(/\s+/g, ' ').trim();
+            if (excerptText.length > maxLength) {
+                excerptText = excerptText.substring(0, maxLength) + '…';
+            }
+            return excerptText;
+        }
+        
+        // Extract meta description if exists
+        function extractMetaDescription(htmlString) {
+            const metaMatch = htmlString.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i);
+            if (metaMatch && metaMatch[1]) return metaMatch[1].trim();
+            const altMatch = htmlString.match(/<meta\s+content=["']([^"']*)["']\s+name=["']description["']/i);
+            if (altMatch && altMatch[1]) return altMatch[1].trim();
+            return null;
+        }
+        
+        // Core: scan and build blog cards
+        async function discoverAndRenderBlogs() {
+            container.innerHTML = `
+                <div class="loader-wrapper" id="scanLoader">
+                    <div class="spinner"></div>
+                    <p>📖 Discovering blogs from /blogs/ folder ...</p>
+                </div>
+            `;
+            
+            const foundBlogs = [];
+            let consecutiveErrors = 0;
+            
+            for (let i = 1; i <= MAX_BLOG_ATTEMPTS; i++) {
+                const blogFileName = `${BLOG_PREFIX}${i}.html`;
+                const blogUrl = `${BLOG_FOLDER_PATH}${blogFileName}`;
+                
+                const htmlContent = await fetchBlogHTML(blogUrl);
+                if (!htmlContent) {
+                    consecutiveErrors++;
+                    if (foundBlogs.length === 0 && i === 1) {
+                        break;
+                    }
+                    if (consecutiveErrors >= 2) {
+                        break;
+                    }
+                    continue;
+                }
+                
+                consecutiveErrors = 0;
+                
+                let title = extractTitle(htmlContent);
+                let metaDesc = extractMetaDescription(htmlContent);
+                let excerpt = metaDesc ? metaDesc : extractExcerpt(htmlContent);
+                let imageUrl = getImageForCard(htmlContent, blogUrl);
+                
+                if (title === "Untitled Story" || title.match(/blog\d+\.html/i)) {
+                    title = `Article ${i}: ${title.replace(/\.html/i, '')}`;
+                    if (!metaDesc) excerpt = `Explore insights from Blog #${i}. Click to read full story.`;
+                } else {
+                    title = title.trim();
+                }
+                
+                foundBlogs.push({
+                    id: i,
+                    fileName: blogFileName,
+                    url: blogUrl,
+                    title: title,
+                    excerpt: excerpt,
+                    image: imageUrl,
+                    date: new Date(Date.now() - (i * 86400000 * 2)).toLocaleDateString('en-US', { year:'numeric', month:'short', day:'numeric' })
+                });
+            }
+            
+            renderBlogCards(foundBlogs);
+        }
+        
+        // render cards with images
+        function renderBlogCards(blogs) {
+            if (!blogs || blogs.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-message">
+                        <div style="font-size: 3rem; margin-bottom: 0.8rem;">📭</div>
+                        <h3 style="margin-bottom: 0.5rem;">No blog files detected</h3>
+                        <p>We couldn't find any blog files like <strong>blog1.html, blog2.html</strong> inside the <code style="background:#eef2ff;padding:0.2rem 0.4rem;">/blogs/</code> folder.</p>
+                        <p style="margin-top: 1rem;">✨ Create a <strong>/blogs/</strong> directory and add your blog HTML files (blog1.html, blog2.html ...) to see them appear here automatically.</p>
+                        <div style="margin-top: 1.5rem;"><span class="status-badge" style="background:#e2e8f0;">⚡ auto-discovery ready</span></div>
+                    </div>
+                `;
+                return;
+            }
+            
+            const gridHtml = `
+                <div class="blogs-grid">
+                    ${blogs.map(blog => `
+                        <div class="blog-card" data-blog-id="${blog.id}" data-url="${blog.url}">
+                            <div class="card-thumb">
+                                ${blog.image ? 
+                                    `<img class="card-thumb-img" src="${blog.image}" alt="${escapeHtml(blog.title)}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : 
+                                    ''
+                                }
+                                ${!blog.image ? '<div class="thumb-icon" style="display: flex;">📖</div>' : '<div class="thumb-icon" style="display: none;">📖</div>'}
+                            </div>
+                            <div class="card-content">
+                                <h3 class="blog-title">${escapeHtml(blog.title)}</h3>
+                                <div class="blog-excerpt">${escapeHtml(blog.excerpt)}</div>
+                                <div class="meta-info">
+                                    <span>📅 ${blog.date}</span>
+                                    <a href="${blog.url}" class="read-link" target="_self" data-nav>Read full →</a>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            container.innerHTML = gridHtml;
+            
+            // Fix image error handling
+            document.querySelectorAll('.card-thumb-img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    const icon = this.parentElement.querySelector('.thumb-icon');
+                    if (icon) icon.style.display = 'flex';
+                });
+            });
+            
+            const cards = document.querySelectorAll('.blog-card');
+            cards.forEach(card => {
+                const link = card.querySelector('.read-link');
+                if (link) {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.tagName !== 'A' && !link.contains(e.target)) {
+                            e.preventDefault();
+                            window.location.href = link.getAttribute('href');
+                        }
+                    });
+                    card.style.cursor = 'pointer';
+                }
+            });
+        }
+        
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            discoverAndRenderBlogs().catch(err => {
+                console.error("Blog discovery critical error:", err);
+                if (container) {
+                    container.innerHTML = `
+                        <div class="error-toast">
+                            ⚠️ Failed to scan blogs: ${err.message || 'Network or parsing issue'}. <br>
+                            Make sure you are running on a local server (or correct path) and the /blogs/ folder exists.
+                        </div>
+                        <div class="empty-message">
+                            💡 Tip: Create a folder named "blogs" and add blog1.html, blog2.html etc. <br>
+                            Use relative paths like ./blogs/blog1.html
+                        </div>
+                    `;
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,347 @@
+/* ============================================
+   BLOG COMMON STYLES - Shared across all blog posts
+   Version: 1.0 | Last updated: January 2026
+   ============================================ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    line-height: 1.7;
+    background: linear-gradient(135deg, #fefefe 0%, #f8f9ff 100%);
+    color: #1a1a2e;
+}
+
+/* Back Button */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e0e7ff;
+}
+
+.back-button:hover {
+    background: #4f46e5;
+    color: white;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    text-decoration: none;
+}
+
+/* Blog Header */
+.blog-header {
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #e0e7ff;
+    padding-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1e1e2a, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+/* Meta Info */
+.meta-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: #5b6e8c;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Author Section */
+.author-section {
+    background: linear-gradient(135deg, #f0f4ff, #ffffff);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #e0e7ff;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.author-details h4 {
+    color: #1e1e2a;
+    margin-bottom: 0.2rem;
+}
+
+.author-details p {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Image Styles */
+.image-container {
+    margin: 2rem 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+    transform: scale(1.02);
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+    padding: 0.75rem;
+    background: #f9fafb;
+    font-style: italic;
+}
+
+/* Two Column Images Layout */
+.two-column-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Blog Content */
+.blog-content {
+    font-size: 1.05rem;
+}
+
+.blog-content h2 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1rem;
+    color: #1e1e2a;
+    font-weight: 700;
+}
+
+.blog-content h3 {
+    font-size: 1.4rem;
+    margin: 1.2rem 0 0.8rem;
+    color: #2d3a6e;
+}
+
+.blog-content p {
+    margin-bottom: 1.2rem;
+    color: #334155;
+}
+
+.blog-content ul, 
+.blog-content ol {
+    margin: 1rem 0 1rem 1.8rem;
+    color: #334155;
+}
+
+.blog-content li {
+    margin-bottom: 0.5rem;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, #eef2ff, #ffffff);
+    border-left: 4px solid #4f46e5;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+}
+
+/* Code Block */
+.code-block {
+    background: #1e1e2a;
+    color: #e2e8f0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Tags Section */
+.tags-section {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    border-top: 2px solid #e0e7ff;
+}
+
+.tag {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Share Section */
+.share-section {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.8rem;
+}
+
+.share-btn {
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.share-btn:hover {
+    background: #4f46e5;
+    color: white;
+}
+
+/* Blog Footer */
+.blog-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Horizontal Rule */
+hr {
+    margin: 2rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e0e7ff, transparent);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .two-column-images {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    body {
+        padding: 1rem;
+    }
+    
+    .meta-info {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .author-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        padding: 0.5cm;
+    }
+    
+    .back-button,
+    .share-section,
+    .blog-footer {
+        display: none;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+article {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
